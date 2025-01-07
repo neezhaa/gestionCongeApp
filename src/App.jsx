@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
-import { RequireAuth } from 'react-auth-kit'
+// import { RequireAuth } from 'react-auth-kit'
 import Dashboard from './pages/Dashboard'
-import Login from './pages/Login'
+import Login from './pages/Login/Login'
 import './App.css'
 
 function App() {
@@ -15,9 +15,9 @@ function App() {
         <Route 
           path="/" 
           element={
-            <RequireAuth loginPath="/login">
+            // <RequireAuth loginPath="/login">
               <Dashboard/>
-            </RequireAuth>
+            // </RequireAuth>
           } />
       </Routes>
     </>
