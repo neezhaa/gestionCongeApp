@@ -31,7 +31,7 @@ function AdminLeaveRequests() {
   async function getDemandeConges(){
     try {
 
-      const resp = await axios.get("http://127.0.0.1:8000/api/demande_conges");
+      const resp = await axios.get("http://127.0.0.1:8000/api/conges");
       setConges(resp.data)
       console.log(conges)
   
@@ -68,7 +68,7 @@ function AdminLeaveRequests() {
                           employes.map((employe, index) => {
                             if(conge.employe_id == employe.id){
                               return <div className='employe' key={index}>
-                                        <p className='name'>{employe.nom_complet}</p>
+                                        <p className='name'>{employe.nom} {employe.prenom} </p>
                                         <p className='profession'>{employe.poste}</p>
                                     </div>
                             }
@@ -85,13 +85,13 @@ function AdminLeaveRequests() {
                     <div className='duree-conge'>
                       <div className='date'>
                         <p className='one'>{conge.date_debut.split('-')[2]}</p>
-                        <p className='two'>{getMonth(conge.date_debut.split('-')[1]).substring(0, 3).toUpperCase()} {conge.date_debut.split('-')[2]}</p>
+                        <p className='two'>{getMonth(conge.date_debut.split('-')[1].substring(1,2)).substring(0, 3).toUpperCase()} {conge.date_debut.split('-')[2]}</p>
                       </div>
                       <img className='arrow' src={arrow} alt="not found"  />
 
                       <div className='date'>
                         <p className='one'>{conge.date_fin.split('-')[2]}</p>
-                        <p className='two'>{getMonth(conge.date_fin.split('-')[1]).substring(0, 3).toUpperCase()} {conge.date_fin.split('-')[2]}</p>
+                        <p className='two'>{getMonth(conge.date_fin.split('-')[1].substring(1,2)).substring(0, 3).toUpperCase()} {conge.date_fin.split('-')[2]}</p>
                       </div>
                     </div>
                     <div className='check-reject'>

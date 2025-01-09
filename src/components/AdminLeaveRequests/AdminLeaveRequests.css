@@ -9,10 +9,11 @@
     display: block;
     font-size: 21px;
     padding-left: 21px;
+    border: none;
   }
   
   > *{
-    border-bottom: 2px solid #cac3c378;
+    border-top: 2px solid #cac3c378;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
