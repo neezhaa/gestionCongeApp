@@ -1,12 +1,12 @@
 // import React from 'react';
-// import CalendarView from '../components/CalendarView/CalendarView';
+import AdminLeaveRequests from '../components/AdminLeaveRequests/AdminLeaveRequests';
 import Navbar from '../components/Navbar/Navbar';
 
 function Dashboard() {
   return (
     <div className='app-container'>
         <Navbar/>
-        {/* <CalendarView/> */}
+        <AdminLeaveRequests/>
     </div>
   )
 }
