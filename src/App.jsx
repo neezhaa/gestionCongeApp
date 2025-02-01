@@ -1,26 +1,14 @@
-import { Route, Routes } from 'react-router-dom'
-// import { RequireAuth } from 'react-auth-kit'
-import Dashboard from './pages/Dashboard'
-import Login from './pages/Login/Login'
 import './App.css'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './router/index'
+import { AuthProvider } from './context/AuthContext'
 
 function App() {
 
   return (
-    <>
-      <Routes>
-        <Route 
-          path="/login" 
-          element={<Login />} />
-        <Route 
-          path="/" 
-          element={
-            // <RequireAuth loginPath="/login">
-              <Dashboard/>
-            // </RequireAuth>
-          } />
-      </Routes>
-    </>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   )
 }
 

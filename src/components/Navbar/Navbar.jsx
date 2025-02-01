@@ -9,22 +9,33 @@ import calendar from '../../assets/calendar.svg'
 import profilePicture from '../../assets/profilePicture.svg'
 import './Navbar.css'
 import { useState } from 'react'
+import Profile from '../Profile/Profile'
+import { useAuth } from '../../context/AuthContext'
 // import useSignOut from 'react-auth-kit/hooks/useSignOut'
 
 function Navbar() {
     const [activeItem, setActiveItem] = useState("dashboard");
     const navigate = useNavigate();
+    const [active, setActive] = useState(false);
+    const { logout } = useAuth();
+    
+
+    const showUserInfo = () =>{
+      setActive(prev => !prev);
+    }
 
     const handleClick = (item) => {
       setActiveItem(item);
   }
 
     const handleLogout = () => {
+      logout()
       // useSignOut();
-      navigate('/');
+      navigate('/login');
     };
   return (
     <div className="navbar">
+            {active && <Profile active={active} />}
             <div className="navbar-header">
                 <div className="app-icon">
                     <img src={logo} alt="Logo" />
@@ -59,7 +70,7 @@ function Navbar() {
                 <button className="account-logout" onClick={handleLogout}>
                   <img src={logOut} alt="Logout"/>
                 </button>
-                <div className="account-info-picture">
+                <div onClick={showUserInfo} className="account-info-picture">
                     <img src={profilePicture} alt="Profile" />
                     {/* <span className='user'>NB</span> */}
                 </div>

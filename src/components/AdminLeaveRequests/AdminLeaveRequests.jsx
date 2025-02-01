@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import check from '../../assets/check.svg'
 import x from '../../assets/x.svg'
 import bell from '../../assets/bell.svg'
@@ -10,6 +10,7 @@ function AdminLeaveRequests() {
 
   const [conges, setConges] = useState([])
   const [employes, setEmployes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const month = {
     1: "January",
@@ -33,15 +34,18 @@ function AdminLeaveRequests() {
 
       const resp = await axios.get("http://127.0.0.1:8000/api/conges");
       setConges(resp.data)
+      setLoading(false)
       console.log(conges)
   
     } catch (error) {
       console.log(error.message);
+      setLoading(false)
     }
   }
   async function getEmployes(){
     const resp = await axios.get('http://127.0.0.1:8000/api/employes');
     setEmployes(resp.data)
+    setLoading(false)
     console.log(employes)
   }
 
@@ -53,8 +57,28 @@ function AdminLeaveRequests() {
 
   }, [])
   console.log(conges)
+
+  if(loading) return (
+        <div className="w-[55rem] bg-white rounded-[16px] border border-[2px] border-gray-300 mt-[6px] ml-[6px]">
+          <div className="h-3 m-8 w-64 animate-pulse rounded-full bg-gray-200"></div>
+          <div className="flex animate-pulse space-x-6 px-8">
+            <div className="size-12 rounded-full bg-gray-200"></div>
+            <div className="flex-1 space-y-6 py-1">
+              <div className="h-3 rounded-full bg-gray-200"></div>
+              <div className="space-y-3">
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="col-span-2 h-3 rounded-full bg-gray-200"></div>
+                  <div className="col-span-1 h-3 rounded-full bg-gray-200"></div>
+                </div>
+                <div className="h-3 rounded-full bg-gray-200"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+  )
   
   return (
+    
 
     <div className='bg-pannel'>
       <p className='header'>En attente de validation</p>
