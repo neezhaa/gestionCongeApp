@@ -1,10 +1,18 @@
 import { createBrowserRouter } from "react-router-dom"
 import NotFound from "../pages/NotFound.jsx";
+import Home from "../pages/Home.jsx";
 import Login from "../pages/Login.jsx";
-import Profile from "../pages/Profile.jsx";
+// import Profile from "../pages/Profile.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
+import Settings from "../pages/Settings.jsx";
 import Layout from "../layouts/Layout.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
+import Profile from "../pages/Profile.jsx";
+import AccountSett from "../components/AccountSett.jsx";
+import NotificationSett from "../components/NotificationSett.jsx";
+import AppearenceSett from "../components/AppearenceSett.jsx";
+import DisplaySett from "../components/DisplaySett.jsx";
+import PublicRoute from "./PublicRoute.jsx";
 
 export const LOGIN_ROUTE = '/login'
 export const EMPLOYEE_DASHBOARD_ROUTE = '/dashboard'
@@ -23,7 +31,7 @@ export const router = createBrowserRouter([
         element: <Layout/>,
         children: [
             {
-                path: '/',
+                path: '/dashboard',
                 element: (
                     <PrivateRoute>
                         <Dashboard/>
@@ -31,14 +39,53 @@ export const router = createBrowserRouter([
                 ),
             },
             {
-                path: '/profile',
-                element: <Profile/>
-            }
+                element: (
+                    <PrivateRoute>
+                        <Settings/>
+                    </PrivateRoute>
+                ),
+                children: [
+                    {
+                        path: '/settings',
+                        element: <Profile/>
+                    },
+                    {
+                        path: '/settings/account',
+                        element: <AccountSett/>
+                    },
+                    {
+                        path: '/settings/appearence',
+                        element: <AppearenceSett/>
+                    },
+                    {
+                        path: '/settings/notifications',
+                        element: <NotificationSett/>
+                    },
+                    {
+                        path: '/settings/display',
+                        element: <DisplaySett/>
+                    },
+                    
+                ]
+            },
+            // {
+            //     path: '/profile',
+            //     element: <Profile/>
+            // }
         ]
     },
     {
         path: '/login',
-        element: <Login/>
+        element: <PublicRoute>
+                    <Login />
+                </PublicRoute>
+    },
+    {
+        path: '/',
+        element: <PublicRoute>
+                    <Home/>
+                </PublicRoute>
+
     },
     {
         path: '*',

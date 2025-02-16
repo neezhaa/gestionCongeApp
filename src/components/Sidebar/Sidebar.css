@@ -1,4 +1,4 @@
-.navbar{
+.sidebar{
     flex-basis: 200px;
     max-width: 64px;
     flex-shrink: 0;
@@ -8,7 +8,7 @@
     position: relative;
 }
 
-.navbar-header {
+.sidebar-header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,12 +16,12 @@
     color: #fff;
 }
 
-.navbar-list-item {
+.sidebar-list-item {
     position: relative;
     margin-bottom: 4px;
 }
 
-.navbar-list-item a {
+.sidebar-list-item a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,11 +30,11 @@
 }
 
 
-.navbar-list-item:hover {
+.sidebar-list-item:hover {
     background-color: #F1F5F9;
 }
 
-.navbar-list-item.active {
+.sidebar-list-item.active {
     background-color: #F1F5F9;
 }
 

@@ -1,4 +1,3 @@
-// import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 import home from '../../assets/home.svg'
@@ -7,13 +6,13 @@ import settings from '../../assets/settings.svg'
 import logOut from '../../assets/log-out.svg'
 import calendar from '../../assets/calendar.svg'
 import profilePicture from '../../assets/profilePicture.svg'
-import './Navbar.css'
+import './Sidebar.css'
 import { useState } from 'react'
 import Profile from '../Profile/Profile'
 import { useAuth } from '../../context/AuthContext'
 // import useSignOut from 'react-auth-kit/hooks/useSignOut'
 
-function Navbar() {
+function sidebar() {
     const [activeItem, setActiveItem] = useState("dashboard");
     const navigate = useNavigate();
     const [active, setActive] = useState(false);
@@ -34,36 +33,39 @@ function Navbar() {
       navigate('/login');
     };
   return (
-    <div className="navbar">
+    <div className="sidebar">
             {active && <Profile active={active} />}
-            <div className="navbar-header">
+            <div className="sidebar-header">
                 <div className="app-icon">
                     <img src={logo} alt="Logo" />
                 </div>
             </div>
 
-            <ul className="navbar-list">
-                <li onClick={()=>handleClick('dashboard')} className={`navbar-list-item ${activeItem === 'dashboard' ?"active":""}`}>
+            <ul className="sidebar-list">
+                <li onClick={()=>handleClick('dashboard')} className={`sidebar-list-item ${activeItem === 'dashboard' ?"active":""}`}>
                     <NavLink to="/">
                       <img src={home} alt="Home"/>
                     </NavLink>
                 </li>
-                <li onClick={()=>handleClick('calendar')} className={`navbar-list-item ${activeItem === 'calendar' ?"active":""}`}>
+                <li onClick={()=>handleClick('calendar')} className={`sidebar-list-item ${activeItem === 'calendar' ?"active":""}`}>
                     <NavLink to="">
                         <img src={calendar} alt="Calendar" />
                     </NavLink>
                 </li>
-                <li onClick={()=>handleClick('notification')} className={`navbar-list-item ${activeItem === 'notification' ?"active":""}`}>
+                <li onClick={()=>handleClick('notification')} className={`sidebar-list-item ${activeItem === 'notification' ?"active":""}`}>
                     <NavLink to="">
                     <img src={bell} alt="Notification"/>
+                    <span className="absolute top-[10px] right-[20px] flex size-3">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+                      <span className="relative inline-flex size-3 rounded-full bg-red-500"></span>
+                    </span>
                     </NavLink>
                 </li>
-                <li onClick={()=>handleClick('settings')} className={`navbar-list-item ${activeItem === 'settings' ?"active":""}`}>
-                    <NavLink to="">
+                <li onClick={()=>handleClick('settings')} className={`relative sidebar-list-item ${activeItem === 'settings' ?"active":""}`}>
+                    <NavLink to="/settings">
                       <img src={settings} alt="Settings"/>
                     </NavLink>
                 </li>
-                
             </ul>
 
             <div className="account-info">
@@ -79,4 +81,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default sidebar
