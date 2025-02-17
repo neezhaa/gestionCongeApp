@@ -13,18 +13,18 @@ function AdminLeaveRequests() {
   const [loading, setLoading] = useState(true);
 
   const month = {
-    1: "January",
-    2: "February",
-    3: "March",
-    4: "April",
-    5: "May",
-    6: "June",
-    7: "July",
-    8: "August",
-    9: "September",
-    10: "October",
-    11: "November",
-    12: "December",
+    '01': "January",
+    '02': "February",
+    '03': "March",
+    '04': "April",
+    '05': "May",
+    '06': "June",
+    '07': "July",
+    '08': "August",
+    '09': "September",
+    '10': "October",
+    '11': "November",
+    '12': "December",
   };
 
   const getMonth = (num) => month[num];
@@ -32,7 +32,9 @@ function AdminLeaveRequests() {
   async function getDemandeConges(){
     try {
 
-      const resp = await axios.get("http://127.0.0.1:8000/api/conges");
+      const resp = await axios.get("http://localhost:8000/api/conges",  {
+        headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
+    });
       setConges(resp.data)
       setLoading(false)
       console.log(conges)
@@ -46,7 +48,8 @@ function AdminLeaveRequests() {
     const resp = await axios.get('http://127.0.0.1:8000/api/employes');
     setEmployes(resp.data)
     setLoading(false)
-    console.log(employes)
+    console.log('employes', employes)
+    console.log('token: ', localStorage.getItem('authToken'))
   }
 
   useEffect(() => {
@@ -56,6 +59,7 @@ function AdminLeaveRequests() {
     console.log(conges)
 
   }, [])
+  
   console.log(conges)
 
   if(loading) return (
@@ -87,14 +91,28 @@ function AdminLeaveRequests() {
         conges.map((conge, index) =>  {
           return  <div className='row' key={index}>
                     <div className='profile'>
-                        <img className='img-profile' src="https://img.freepik.com/premium-vector/office-worker-wearing-glasses_277909-81.jpg?ga=GA1.1.269041590.1690740809&semt=ais_hybrid" alt="not found" />
+                      {
+                        employes.map(emp =>{  if(emp.id == conge.employe_id){
+                          if(emp.genre == 'male')  {
+
+                            return <><img className='img-profile' src="https://img.freepik.com/premium-vector/office-worker-wearing-glasses_277909-81.jpg?ga=GA1.1.269041590.1690740809&semt=ais_hybrid" alt="not found" /></>
+                          
+                          }else{
+
+                            return <><img className='img-profile' src="https://img.freepik.com/premium-vector/business-woman-character-vector-illustration_1133257-2432.jpg?ga=GA1.1.241166601.1739396509&semt=ais_authors_boost" alt="" /></>
+                          
+                          }}
+                        })
+                      }
                         {
                           employes.map((employe, index) => {
+
                             if(conge.employe_id == employe.id){
+                              
                               return <div className='employe' key={index}>
                                         <p className='name'>{employe.nom} {employe.prenom} </p>
                                         <p className='profession'>{employe.poste}</p>
-                                    </div>
+                                    </div>       
                             }
                           })
                         }
@@ -109,13 +127,14 @@ function AdminLeaveRequests() {
                     <div className='duree-conge'>
                       <div className='date'>
                         <p className='one'>{conge.date_debut.split('-')[2]}</p>
-                        <p className='two'>{getMonth(conge.date_debut.split('-')[1].substring(1,2)).substring(0, 3).toUpperCase()} {conge.date_debut.split('-')[2]}</p>
+                        <p className='two'>{getMonth(conge.date_debut.split('-')[1]).substring(0,3)} {conge.date_debut.split('-')[2]}</p>
                       </div>
                       <img className='arrow' src={arrow} alt="not found"  />
 
                       <div className='date'>
                         <p className='one'>{conge.date_fin.split('-')[2]}</p>
-                        <p className='two'>{getMonth(conge.date_fin.split('-')[1].substring(1,2)).substring(0, 3).toUpperCase()} {conge.date_fin.split('-')[2]}</p>
+                        <p className='two'>{getMonth(conge.date_fin.split('-')[1]).substring(0,3)} {conge.date_fin.split('-')[2]}</p>
+
                       </div>
                     </div>
                     <div className='check-reject'>
@@ -133,4 +152,7 @@ function AdminLeaveRequests() {
   )
 }
 
-export default AdminLeaveRequests
+export default AdminLeaveRequests;
+
+
+{/* <p className='two'>{getMonth(conge.date_debut.split('-')[1].substring(1,2)).substring(0, 3).toUpperCase()} {conge.date_debut.split('-')[2]}</p> */}
