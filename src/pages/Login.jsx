@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useAuth } from "../context/AuthContext";
 
-
 function Login() { 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('yassine.noussair@example.com');
+    const [password, setPassword] = useState('123456');
+    const [loading, setLoading] = useState(false);
     const [clicked, setIsClicked] = useState(false);
     const { login } = useAuth();
 
@@ -21,6 +21,7 @@ function Login() {
             const res = await axios.post('http://127.0.0.1:8000/api/login', {email, password});
             if (res.status === 200) {
                 login(res.data.token);
+                setLoading(true)
 
             } else {
                 alert('Login failed');
@@ -35,12 +36,13 @@ function Login() {
         <header className="h-auto pt-[20px] w-full">
             <div className="flex items-center justify-between mx-auto max-w-[590px] px-[5px] w-full">
                 <Link className="link-b block text-[#1e385b] text-[16px] ml-[15px] relative no-underline border-b border-[#0099fa] transition-all duration-500" to="/">
-                <span className="absolute left-[-19px] top-[16px] 
-                    bg-[url('https://pocketoption.com/themes/cabinet/images/login/icon-left.svg')] 
-                    bg-center bg-no-repeat bg-contain  mt-[-11px]
-                    h-[17px] w-[17px]">
-                </span>
-                To home page</Link>
+                    <span className="absolute left-[-19px] top-[16px] 
+                        bg-[url('https://pocketoption.com/themes/cabinet/images/login/icon-left.svg')] 
+                        bg-center bg-no-repeat bg-contain  mt-[-11px]
+                        h-[17px] w-[17px]">
+                    </span>
+                    To home page
+                </Link>
 
                 <div className="flex items-center">
                     <div onClick={handleClick} className='font-normal relative'>
@@ -70,8 +72,7 @@ function Login() {
                                 shadow-[0_10px_70px_rgba(0,0,0,0.1)] 
                                 flex flex-col justify-evenly items-start 
                                 absolute right-0 mt-[1.1rem] p-[8px_10px] 
-                                transition-opacity transition-transform 
-                                transition-visibility duration-500 
+                                transition-transform transition-visibility duration-500 
                                 z-[999] ${clicked? "opacity-100 scale-100  pointer-events-auto visible"
                                     :
                                  "opacity-0 invisible pointer-events-none scale-0"}`}>
@@ -136,17 +137,29 @@ function Login() {
                         </div>
                     </div>
                     <div className="submit-btn-wrap">
-                        <button className=" bg-gradient-to-r from-[#0099fa] to-[#002ed9] 
-                            bg-[length:115%_auto] border-0 rounded-[10px] 
-                            text-white cursor-pointer inline-block 
-                            text-[15px] font-semibold tracking-wide 
-                            max-w-[300px] overflow-hidden 
-                            pt-[16px] px-[20px] pb-[14px] 
-                            relative text-center uppercase 
-                            transition-all duration-500 w-full
-                            hover:brightness-110" type="submit">
-                            Sign In                        
+                    <button 
+                        className="flex items-center justify-center bg-gradient-to-r from-[#0099fa] to-[#002ed9] 
+                                    bg-[length:115%_auto] border-0 rounded-[10px] 
+                                    text-white cursor-pointer text-[15px] font-semibold tracking-wide 
+                                    max-w-[300px] overflow-hidden 
+                                    pt-[16px] px-[20px] pb-[14px] 
+                                    relative text-center uppercase 
+                                    transition-all duration-500 w-full
+                                    hover:brightness-110" 
+                        type="submit">
+                        
+                        Sign In
+
+                        {loading && (
+                            <div className="flex items-center ml-2">
+                            <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                            <span className="w-2 h-2 bg-white rounded-full animate-pulse mx-1" style={{ animationDelay: "0.2s" }}></span>
+                            <span className="w-2 h-2 bg-white rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></span>
+                            </div>
+                        )}
+
                         </button>
+
                     </div>
                 </form>
             </div>

@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
   const login = (token) => {
     localStorage.setItem("authToken", token);
     setAuth({ token });
-    window.location.href = "/";
+    window.location.href = "/dashboard";
   };
 
   const logout = () => {

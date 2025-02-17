@@ -1,12 +1,11 @@
-// import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Navbar from '../components/Navbar/Navbar'
+import { Outlet} from 'react-router-dom'
+import Sidebar from '../components/Sidebar/Sidebar'
 
 function Layout() {
   return (
     <div className='app-container'>
-        <Navbar />
-        <main>
+        <Sidebar />
+        <main className='flex-1'>
             <Outlet/>
         </main>
     </div>

@@ -1,4 +1,3 @@
-// import React from 'react';
 import AdminLeaveRequests from '../components/AdminLeaveRequests/AdminLeaveRequests';
 
 function Dashboard() {
