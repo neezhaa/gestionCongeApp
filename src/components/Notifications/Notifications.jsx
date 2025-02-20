@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, createContext} from 'react'
 import './notifications.css'
 import { useEffect } from 'react';
 import axios from 'axios';
+
 function Notifications({changeStateNotif}) {
 
     const [notifs, setNotifs] = useState([]);
