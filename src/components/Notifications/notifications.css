@@ -1,0 +1,92 @@
+.overlay{
+    width: 100vw;
+    height: 100vh;
+    background: #00000082;
+    position: absolute;
+    padding-left: 75px;
+    z-index: 4;
+    opacity: 0;
+    transform: translateY(20px); /* Start position (down) */
+    transition: opacity 1s ease-out, transform 0.5s ease-out;
+
+    
+
+    .card{
+        background: white;
+        margin-top: 10%;
+        width: 25rem;
+        border-radius: 10px;
+        overflow-y: auto;
+        height: fit-content;
+
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 15px;
+
+            p{
+                font-weight: 600;
+                font-size: 18px;
+                
+            }
+
+            .fa-xmark{
+                color: rgba(0, 0, 0, 0.603);
+                cursor: pointer;
+            }
+        }
+
+        .today {
+            background: rgba(128, 128, 128, 0.185);
+            font-weight: 200;
+            font-size: 18px;
+            padding: 11px 15px;
+
+        }
+
+        .notifs{
+
+            .notif{
+                display: flex;
+                padding: 13px;
+                position: relative;
+                border-bottom: 1px solid rgba(132, 129, 129, 0.308);
+
+                .profession{
+                    opacity: 0.66;
+                }
+
+                .message{
+
+                }
+            }
+
+            .img-profile{
+                height: 40px;
+                margin-right: 10px;
+            }
+        }  
+    }
+
+}
+.overlay::before{
+    content: '';
+    position: absolute;
+    left: 4.5%;
+    top: 23%;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    transform: rotate(45deg);
+    border-radius: 3px;
+    display: block;
+}
+
+
+.smooth-enter-active{
+    opacity: 1;
+    transform: translateY(0); 
+}
+
