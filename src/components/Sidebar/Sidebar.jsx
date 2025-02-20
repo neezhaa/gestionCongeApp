@@ -10,6 +10,7 @@ import './Sidebar.css'
 import { useState } from 'react'
 import Profile from '../Profile/Profile'
 import { useAuth } from '../../context/AuthContext'
+import Notifications from '../Notifications/Notifications'
 // import useSignOut from 'react-auth-kit/hooks/useSignOut'
 
 function sidebar() {
@@ -17,7 +18,7 @@ function sidebar() {
     const navigate = useNavigate();
     const [active, setActive] = useState(false);
     const { logout } = useAuth();
-    
+    const [activeNotif, setActiveNotif] = useState(false)
 
     const showUserInfo = () =>{
       setActive(prev => !prev);
@@ -32,8 +33,22 @@ function sidebar() {
       // useSignOut();
       navigate('/login');
     };
+
+    const handleClickNotifs = () => {
+      setActiveNotif(prev => !prev)
+      console.log('active notif: ',activeNotif)
+    }
+    function changeStateNotif(data){
+      setActiveNotif(data)
+
+    }
+
+
   return (
     <div className="sidebar">
+
+          {activeNotif ? <Notifications changeStateNotif={changeStateNotif} /> : ''}
+
             {active && <Profile active={active} />}
             <div className="sidebar-header">
                 <div className="app-icon">
@@ -52,14 +67,14 @@ function sidebar() {
                         <img src={calendar} alt="Calendar" />
                     </NavLink>
                 </li>
-                <li onClick={()=>handleClick('notification')} className={`sidebar-list-item ${activeItem === 'notification' ?"active":""}`}>
-                    <NavLink to="">
+                <li onClick={handleClickNotifs} className={`sidebar-list-item ${activeItem === 'notification' ?"active":""}`}>
+                    <a>
                     <img src={bell} alt="Notification"/>
                     <span className="absolute top-[10px] right-[20px] flex size-3">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
                       <span className="relative inline-flex size-3 rounded-full bg-red-500"></span>
                     </span>
-                    </NavLink>
+                    </a>
                 </li>
                 <li onClick={()=>handleClick('settings')} className={`relative sidebar-list-item ${activeItem === 'settings' ?"active":""}`}>
                     <NavLink to="/settings">
@@ -77,6 +92,7 @@ function sidebar() {
                     {/* <span className='user'>NB</span> */}
                 </div>
             </div>
+
         </div>
   )
 }

@@ -19,6 +19,7 @@
 .sidebar-list-item {
     position: relative;
     margin-bottom: 4px;
+    cursor: pointer;
 }
 
 .sidebar-list-item a {
