@@ -1,92 +1,204 @@
+import { Button } from "@/components/ui/button";
 
-import { useState, useRef, useEffect } from "react";
-
-export default function AppearenceSett() {
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null);
-  const calendarRef = useRef(null);
-
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth();
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-  const handleDateClick = (day) => {
-    setSelectedDate(`${year}-${month + 1}-${day}`);
-    setShowCalendar(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (calendarRef.current && !calendarRef.current.contains(event.target)) {
-        setShowCalendar(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
+function AppearenceSett() {
   return (
-    <div className="relative w-64">
-      {/* Bouton de sélection */}
-      <button
-        className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg flex justify-between items-center"
-        onClick={() => setShowCalendar(!showCalendar)}
-      >
-        {selectedDate ? selectedDate : "Pick a Date"}
-        <svg
-          className="w-5 h-5 ml-2"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 9l6 6 6-6"
-          ></path>
-        </svg>
-      </button>
-
-      {/* Calendrier */}
-      {showCalendar && (
-        <div
-          ref={calendarRef}
-          className="absolute left-0 mt-2 w-full bg-white border rounded-lg shadow-lg p-4"
-        >
-          <div className="grid grid-cols-7 text-gray-500 text-sm mb-2">
-            {days.map((day) => (
-              <div key={day} className="text-center font-semibold">
-                {day}
-              </div>
-            ))}
+    <div className="flex-1 pl-6">
+      <div>
+        <h2 className="text-lg font-medium">Appearance</h2>
+        <p className="text-sm text-muted-foreground">
+          Customize the appearance of the app. Automatically switch between day
+          and night themes.
+        </p>
+      </div>
+      <div className="bg-border h-[1px] w-full shrink-0 my-6"></div>
+      <form className="space-y-8">
+        {/* Font Selection */}
+        <div className="space-y-2">
+          <label className="text-base font-medium">Font</label>
+          <div className="relative w-max">
+            <select
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:w-4 [&_svg]:h-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-[200px] appearance-none font-normal"
+              name="font"
+              id="font-select"
+              aria-describedby="font-select-description"
+              aria-invalid="false"
+            >
+              <option value="inter">Inter</option>
+              <option value="manrope">Manrope</option>
+              <option value="system">System</option>
+            </select>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-chevron-down absolute right-3 top-2.5 h-4 w-4 opacity-50"
+            >
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
           </div>
-          <div className="grid grid-cols-7 gap-1">
-            {Array.from({ length: firstDay }).map((_, i) => (
-              <div key={`empty-${i}`} className="text-center"></div>
-            ))}
-            {Array.from({ length: daysInMonth }).map((_, i) => (
-              <button
-                key={i + 1}
-                className={`p-2 text-sm text-center rounded-full hover:bg-blue-200 ${
-                  selectedDate === `${year}-${month + 1}-${i + 1}`
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-100"
-                }`}
-                onClick={() => handleDateClick(i + 1)}
+          <p className="text-[0.8rem] text-muted-foreground">
+            Set the font you want to use in the dashboard.
+          </p>
+        </div>
+
+        {/* Theme Selection */}
+        <div className="space-y-2">
+          <label className="text-base font-medium">Theme</label>
+          <p className="text-[0.8rem] text-muted-foreground">
+            Select the theme for the dashboard.
+          </p>
+          <div
+            role="radiogroup"
+            aria-required="false"
+            dir="ltr"
+            className="grid max-w-md grid-cols-2 gap-8 pt-2 outline-none"
+            tabIndex="0"
+          >
+            {/* Light Option */}
+            <div className="space-y-2">
+              <label
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 [&:has([data-state=checked])>div]:border-primary"
+                htmlFor="light-option"
               >
-                {i + 1}
-              </button>
-            ))}
+                <button
+                  type="button"
+                  role="radio"
+                  aria-checked="true"
+                  data-state="checked"
+                  value="light"
+                  className="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 sr-only"
+                  id="light-option"
+                  aria-describedby="light-option-description"
+                  aria-invalid="false"
+                  tabIndex="-1"
+                  data-radix-collection-item=""
+                >
+                  <span
+                    data-state="checked"
+                    className="flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-circle h-3.5 w-3.5 fill-primary"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </button>
+                <input
+                  aria-hidden="true"
+                  tabIndex="-1"
+                  type="radio"
+                  value="light"
+                  checked
+                  style={{
+                    transform: "translateX(-100%)",
+                    position: "absolute",
+                    pointerEvents: "none",
+                    opacity: 0,
+                    margin: 0,
+                    width: "16px",
+                    height: "16px",
+                  }}
+                />
+                <div className="items-center rounded-md border-2 border-muted p-1 hover:border-accent">
+                  <div className="space-y-2 rounded-sm bg-[#ecedef] p-2">
+                    <div className="space-y-2 rounded-md bg-white p-2 shadow-sm">
+                      <div className="h-2 w-[80px] rounded-lg bg-[#ecedef]" />
+                      <div className="h-2 w-[100px] rounded-lg bg-[#ecedef]" />
+                    </div>
+                    <div className="flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm">
+                      <div className="h-4 w-4 rounded-full bg-[#ecedef]" />
+                      <div className="h-2 w-[100px] rounded-lg bg-[#ecedef]" />
+                    </div>
+                    <div className="flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm">
+                      <div className="h-4 w-4 rounded-full bg-[#ecedef]" />
+                      <div className="h-2 w-[100px] rounded-lg bg-[#ecedef]" />
+                    </div>
+                  </div>
+                </div>
+                <span className="block w-full p-2 text-center font-normal">
+                  Light
+                </span>
+              </label>
+            </div>
+
+            {/* Dark Option */}
+            <div className="space-y-2">
+              <label
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 [&:has([data-state=checked])>div]:border-primary"
+                htmlFor="dark-option"
+              >
+                <button
+                  type="button"
+                  role="radio"
+                  aria-checked="false"
+                  data-state="unchecked"
+                  value="dark"
+                  className="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 sr-only"
+                  id="dark-option"
+                  aria-describedby="dark-option-description"
+                  aria-invalid="false"
+                  tabIndex="-1"
+                  data-radix-collection-item=""
+                />
+                <input
+                  aria-hidden="true"
+                  tabIndex="-1"
+                  type="radio"
+                  value="dark"
+                  style={{
+                    transform: "translateX(-100%)",
+                    position: "absolute",
+                    pointerEvents: "none",
+                    opacity: 0,
+                    margin: 0,
+                    width: "16px",
+                    height: "16px",
+                  }}
+                />
+                <div className="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent hover:text-accent-foreground">
+                  <div className="space-y-2 rounded-sm bg-slate-950 p-2">
+                    <div className="space-y-2 rounded-md bg-slate-800 p-2 shadow-sm">
+                      <div className="h-2 w-[80px] rounded-lg bg-slate-400" />
+                      <div className="h-2 w-[100px] rounded-lg bg-slate-400" />
+                    </div>
+                    <div className="flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm">
+                      <div className="h-4 w-4 rounded-full bg-slate-400" />
+                      <div className="h-2 w-[100px] rounded-lg bg-slate-400" />
+                    </div>
+                    <div className="flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm">
+                      <div className="h-4 w-4 rounded-full bg-slate-400" />
+                      <div className="h-2 w-[100px] rounded-lg bg-slate-400" />
+                    </div>
+                  </div>
+                </div>
+                <span className="block w-full p-2 text-center font-normal">
+                  Dark
+                </span>
+              </label>
+            </div>
           </div>
         </div>
-      )}
+
+        <Button>Update notifications</Button>
+      </form>
     </div>
   );
 }
+
+export default AppearenceSett;
