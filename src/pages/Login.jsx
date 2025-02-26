@@ -17,19 +17,23 @@ function Login() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        setLoading(true)
         try{
             const res = await axios.post('http://127.0.0.1:8000/api/login', {email, password});
             if (res.status === 200) {
                 login(res.data.token);
-                setLoading(true)
-
             } else {
                 alert('Login failed');
             }
 
-        }catch(error) {
+        } catch(error) {
             console.error('Login error:', error);
+            alert('An error occurred. Please try again.');
+
+        } finally { 
+            setLoading(false); 
         }
+        
     }
   return (
     <div className='bg-[#f0f5f9] w-screen h-screen flex flex-col items-center justify-between text-base font-normal'>
