@@ -14,7 +14,7 @@ import { useAuth } from '../../context/AuthContext'
 import Notifications from '../Notifications/Notifications'
 // import useSignOut from 'react-auth-kit/hooks/useSignOut'
 
-function sidebar() {
+function Sidebar() {
     const [activeItem, setActiveItem] = useState("dashboard");
     const navigate = useNavigate();
     const [active, setActive] = useState(false);
@@ -103,4 +103,4 @@ function sidebar() {
   )
 }
 
-export default sidebar
+export default Sidebar
