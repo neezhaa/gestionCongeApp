@@ -108,6 +108,7 @@
       padding: 8px;
       border-radius: 50%;
       color: #4CFF67;
+      transition: 0.4s;
     }
     .x-icon{
       border: 2px solid #FF2626;
@@ -115,6 +116,14 @@
       border-radius: 50%;
       color: #FF2626;
       margin-right: 10px;
+      transition: 0.4s;
+
+    }
+    .x-icon:hover, .check-icon:hover{
+      cursor: pointer;
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #ddd ;
+
     }
   }
 

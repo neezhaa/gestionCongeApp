@@ -13,6 +13,7 @@ import NotificationSett from "../components/NotificationSett.jsx";
 import AppearenceSett from "../components/AppearenceSett.jsx";
 import DisplaySett from "../components/DisplaySett.jsx";
 import PublicRoute from "./PublicRoute.jsx";
+import EmployeesList from "../components/EmployeesList/EmployeesList.jsx";
 
 export const LOGIN_ROUTE = '/login'
 export const EMPLOYEE_DASHBOARD_ROUTE = '/dashboard'
@@ -78,6 +79,12 @@ export const router = createBrowserRouter([
         path: '/login',
         element: <PublicRoute>
                     <Login />
+                </PublicRoute>
+    },
+    {
+        path: '/employe',
+        element: <PublicRoute>
+                    <EmployeesList />
                 </PublicRoute>
     },
     {

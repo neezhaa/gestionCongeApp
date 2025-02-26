@@ -5,6 +5,7 @@ import bell from '../../assets/bell.svg'
 import arrow from '../../assets/arrow-right-svgrepo-com.svg'
 import './AdminLeaveRequests.css'
 import axios from 'axios'
+import { toast } from 'sonner'
 
 function AdminLeaveRequests() {
 
@@ -59,8 +60,67 @@ function AdminLeaveRequests() {
     console.log(conges)
 
   }, [])
+
+  const rejectLeaveRequest = async (employeID, demandeCongeID) => {
+
+    try {
+    const token = localStorage.getItem('authToken'); 
+    console.log('token', token)
+      const response = await axios.post(
+        'http://127.0.0.1:8000/api/notifications',
+        {
+          employe_id: employeID,
+          type: 'reponse_demande',
+          message: 'Demande de congé rejetée',
+          demande_conge_id: demandeCongeID,
+
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+            'Content-Type': 'application/json',
+          },
+        })
+        toast.success("Demande de congé rejetée avec succès !");
+      console.log('Notification envoyée et demande rejetée:', response.data);
+    } catch (error) {
+
+      toast.error("Échec du rejet de la demande. Veuillez réessayer !")
+      console.error('Erreur lors du rejet de la demande:', error);
+    }
+  };
+
+  const acceptLeaveRequest = async (employeID, demandeCongeID) => {
+
+    try {
+    const token = localStorage.getItem('authToken'); 
+    console.log('token', token)
+      const response = await axios.post(
+        'http://127.0.0.1:8000/api/notifications',
+        {
+          employe_id: employeID,
+          type: 'reponse_demande',
+          message: 'Demande de congé acceptée',
+          demande_conge_id: demandeCongeID,
+
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+            'Content-Type': 'application/json',
+          },
+        })
+        toast.success("Demande de congé acceptée avec succès !");
+      console.log('Notification envoyée et demande acceptée:', response.data);
+    } catch (error) {
+      toast.error("Échec d'acceptation de la demande. Veuillez réessayer !")
+      console.error("Erreur lors de l'accepation  de la demande:", error);
+    }
+  };
+
   
-  console.log(conges)
+
+  
 
   if(loading) return (
         <div className="w-[55rem] bg-white rounded-[16px] border border-[2px] border-gray-300 mt-[6px] ml-[6px]">
@@ -80,6 +140,8 @@ function AdminLeaveRequests() {
           </div>
         </div>
   )
+
+
   
   return (
     
@@ -90,7 +152,7 @@ function AdminLeaveRequests() {
       {
         conges.map((conge, index) =>  {
           return  <div className='row' key={index}>
-                    <div className='profile'>
+                    <div className='profile' key={index}>
                       {
                         employes.map(emp =>{  if(emp.id == conge.employe_id){
                           if(emp.genre == 'male')  {
@@ -138,8 +200,8 @@ function AdminLeaveRequests() {
                       </div>
                     </div>
                     <div className='check-reject'>
-                      <img src={x} alt="not found"  className='x-icon'  />
-                      <img src={check} alt="not found" className='check-icon' />
+                      <img src={x} alt="not found"  className='x-icon' onClick={() => rejectLeaveRequest(conge.employe_id, conge.id)}  />
+                      <img src={check} alt="not found" className='check-icon' onClick={() => acceptLeaveRequest(conge.employe_id, conge.id)} />
 
                     </div>
                 </div>
@@ -153,6 +215,3 @@ function AdminLeaveRequests() {
 }
 
 export default AdminLeaveRequests;
-
-
-{/* <p className='two'>{getMonth(conge.date_debut.split('-')[1].substring(1,2)).substring(0, 3).toUpperCase()} {conge.date_debut.split('-')[2]}</p> */}

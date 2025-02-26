@@ -1,7 +1,9 @@
-import { useState, createContext} from 'react'
+import { useState} from 'react'
 import './notifications.css'
 import { useEffect } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 function Notifications({changeStateNotif}) {
 
@@ -38,6 +40,7 @@ function Notifications({changeStateNotif}) {
                                     </div>
                                     <div className="today">
                                         <p>Today</p>
+                                        <NavLink to="/settings/notifications">View All</NavLink>
                                     </div>
                                     <div className="notifs">
 
@@ -68,5 +71,9 @@ function Notifications({changeStateNotif}) {
   )
 
 }
+
+Notifications.propTypes = {
+    changeStateNotif: PropTypes.string.isRequired
+  }
 
 export default Notifications
