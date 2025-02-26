@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 import home from '../../assets/home.svg'
+import users from '../../assets/users.svg'
 import bell from '../../assets/bell.svg'
 import settings from '../../assets/settings.svg'
 import logOut from '../../assets/log-out.svg'
@@ -60,6 +61,11 @@ function sidebar() {
                 <li onClick={()=>handleClick('dashboard')} className={`sidebar-list-item ${activeItem === 'dashboard' ?"active":""}`}>
                     <NavLink to="/">
                       <img src={home} alt="Home"/>
+                    </NavLink>
+                </li>
+                <li onClick={()=>handleClick('employees')} className={`sidebar-list-item ${activeItem === 'employees' ?"active":""}`}>
+                    <NavLink to="/employees">
+                      <img src={users} alt="Employees"/>
                     </NavLink>
                 </li>
                 <li onClick={()=>handleClick('calendar')} className={`sidebar-list-item ${activeItem === 'calendar' ?"active":""}`}>
