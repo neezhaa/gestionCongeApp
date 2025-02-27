@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 function AppearenceSett() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  }
   return (
     <div className="flex-1 pl-6">
       <div>
@@ -17,11 +22,14 @@ function AppearenceSett() {
           <label className="text-base font-medium">Font</label>
           <div className="relative w-max">
             <select
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:w-4 [&_svg]:h-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-[200px] appearance-none font-normal"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md 
+              text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 
+              focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 
+              [&_svg]:pointer-events-none [&_svg]:w-4 [&_svg]:h-4 [&_svg]:shrink-0 border border-input 
+              bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-[200px] 
+              appearance-none font-normal"
               name="font"
               id="font-select"
-              aria-describedby="font-select-description"
-              aria-invalid="false"
             >
               <option value="inter">Inter</option>
               <option value="manrope">Manrope</option>
@@ -53,69 +61,10 @@ function AppearenceSett() {
           <p className="text-[0.8rem] text-muted-foreground">
             Select the theme for the dashboard.
           </p>
-          <div
-            role="radiogroup"
-            aria-required="false"
-            dir="ltr"
-            className="grid max-w-md grid-cols-2 gap-8 pt-2 outline-none"
-            tabIndex="0"
-          >
+          <div className="grid max-w-md grid-cols-2 gap-8 pt-2 outline-none">
             {/* Light Option */}
-            <div className="space-y-2">
-              <label
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 [&:has([data-state=checked])>div]:border-primary"
-                htmlFor="light-option"
-              >
-                <button
-                  type="button"
-                  role="radio"
-                  aria-checked="true"
-                  data-state="checked"
-                  value="light"
-                  className="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 sr-only"
-                  id="light-option"
-                  aria-describedby="light-option-description"
-                  aria-invalid="false"
-                  tabIndex="-1"
-                  data-radix-collection-item=""
-                >
-                  <span
-                    data-state="checked"
-                    className="flex items-center justify-center"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-circle h-3.5 w-3.5 fill-primary"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                    </svg>
-                  </span>
-                </button>
-                <input
-                  aria-hidden="true"
-                  tabIndex="-1"
-                  type="radio"
-                  value="light"
-                  checked
-                  style={{
-                    transform: "translateX(-100%)",
-                    position: "absolute",
-                    pointerEvents: "none",
-                    opacity: 0,
-                    margin: 0,
-                    width: "16px",
-                    height: "16px",
-                  }}
-                />
-                <div className="items-center rounded-md border-2 border-muted p-1 hover:border-accent">
+            <div className="space-y-2" onClick={toggleTheme}>
+                <div className={`items-center rounded-md border-2 p-1 ${!isDarkMode ? 'border-black' : ''}`}>
                   <div className="space-y-2 rounded-sm bg-[#ecedef] p-2">
                     <div className="space-y-2 rounded-md bg-white p-2 shadow-sm">
                       <div className="h-2 w-[80px] rounded-lg bg-[#ecedef]" />
@@ -134,44 +83,11 @@ function AppearenceSett() {
                 <span className="block w-full p-2 text-center font-normal">
                   Light
                 </span>
-              </label>
             </div>
 
             {/* Dark Option */}
-            <div className="space-y-2">
-              <label
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 [&:has([data-state=checked])>div]:border-primary"
-                htmlFor="dark-option"
-              >
-                <button
-                  type="button"
-                  role="radio"
-                  aria-checked="false"
-                  data-state="unchecked"
-                  value="dark"
-                  className="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 sr-only"
-                  id="dark-option"
-                  aria-describedby="dark-option-description"
-                  aria-invalid="false"
-                  tabIndex="-1"
-                  data-radix-collection-item=""
-                />
-                <input
-                  aria-hidden="true"
-                  tabIndex="-1"
-                  type="radio"
-                  value="dark"
-                  style={{
-                    transform: "translateX(-100%)",
-                    position: "absolute",
-                    pointerEvents: "none",
-                    opacity: 0,
-                    margin: 0,
-                    width: "16px",
-                    height: "16px",
-                  }}
-                />
-                <div className="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent hover:text-accent-foreground">
+            <div className="space-y-2" onClick={toggleTheme}>
+                <div className={`items-center rounded-md border-2 p-1 ${isDarkMode ? 'border-black' : ''}`}>
                   <div className="space-y-2 rounded-sm bg-slate-950 p-2">
                     <div className="space-y-2 rounded-md bg-slate-800 p-2 shadow-sm">
                       <div className="h-2 w-[80px] rounded-lg bg-slate-400" />
@@ -190,7 +106,6 @@ function AppearenceSett() {
                 <span className="block w-full p-2 text-center font-normal">
                   Dark
                 </span>
-              </label>
             </div>
           </div>
         </div>

@@ -24,13 +24,7 @@ function AccountSett() {
                 <input type="email" placeholder="Your Email" className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" name="email"/>
                 <p className="text-[0.8rem] text-muted-foreground">This is the name that will be displayed on your profile and in emails.</p>
             </div>
-            <div className="space-y-2">
-                <label className="text-sm font-medium">
-                    Date of birth
-                </label>
-                <input type="date" placeholder="Pick a date" className="flex h-9 w-64 rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" name="date"/>
-                <p className="text-[0.8rem] text-muted-foreground">Your date of birth is used to calculate your age.</p>
-            </div>
+            
             <div className="space-y-2 flex flex-col">
                 <label className="text-sm font-medium">
                     Language

@@ -28,20 +28,22 @@ function Employees() {
     if (loading) return <p>Loading...</p>;
 
     return (
-        <div className="h-full flex-1 flex-col space-y-8 p-8 md:flex">
+    //     <div className="bg-white w-[99%] h-fit p-10 m-2 border-2 border-gray-200 rounded-xl">
+    <div className="bg-white h-full w-[99%] p-10 m-2 border-2 border-gray-200 rounded-xl flex-1 flex-col space-y-8 md:flex">
             <div className="flex items-center space-y-2">
                 <div>
-                    <h2 className="text-2xl font-bold tracking-tight">Employees Management</h2>
-                    <p className="text-muted-foreground">Here&apos;s a list of your employees</p>
+                    <h1 className="text-2xl font-bold mb-2 tracking-tight">Employees Management</h1>
+                    <p className="text-muted-foreground">Here's a list of your employees</p>
                 </div>
             </div>
+            {/* <div className="h-[1px] w-full my-6 bg-border "></div> */}
             <div className="space-y-4">
                 <div className="border rounded-sm">
                     <div className="relative w-full overflow-auto">
                         <table className="w-full caption-bottom text-sm">
                             <thead className="[&_tr]:border-b">
                                 <tr className="border-b transition-colors hover:bg-muted/50">
-                                    {['Nom', 'Prénom', 'Poste', 'Date d&apos;embauche', 'Solde congé'].map((header, index) => (
+                                    {['Nom', 'Prénom', 'Poste', 'Date d\'embauche', 'Solde congé'].map((header, index) => (
                                         <th key={index} className="h-10 px-2 text-left align-middle font-medium text-muted-foreground">
                                             <div>{header}</div>
                                         </th>
@@ -68,3 +70,5 @@ function Employees() {
 }
 
 export default Employees;
+
+

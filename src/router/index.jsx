@@ -13,7 +13,7 @@ import NotificationSett from "../components/NotificationSett.jsx";
 import AppearenceSett from "../components/AppearenceSett.jsx";
 import DisplaySett from "../components/DisplaySett.jsx";
 import PublicRoute from "./PublicRoute.jsx";
-import EmployeesList from "../components/EmployeesList/EmployeesList.jsx";
+import EmployeesList from "../pages/EmployeesList.jsx";
 
 export const LOGIN_ROUTE = '/login'
 export const EMPLOYEE_DASHBOARD_ROUTE = '/dashboard'
