@@ -21,7 +21,7 @@ function Login() {
         try{
             const res = await axios.post('http://127.0.0.1:8000/api/login', {email, password});
             if (res.status === 200) {
-                login(res.data.token);
+                login(res.data.token, res.data.employe);
             } else {
                 alert('Login failed');
             }

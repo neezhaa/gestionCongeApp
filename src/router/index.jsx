@@ -13,7 +13,8 @@ import NotificationSett from "../components/NotificationSett.jsx";
 import AppearenceSett from "../components/AppearenceSett.jsx";
 import DisplaySett from "../components/DisplaySett.jsx";
 import PublicRoute from "./PublicRoute.jsx";
-import EmployeesList from "../pages/EmployeesList.jsx";
+import EmployeesTable from "../pages/EmployeesTable.jsx";
+import AllLeaveRequests from "../pages/AllLeaveRequests.jsx";
 
 export const LOGIN_ROUTE = '/login'
 export const EMPLOYEE_DASHBOARD_ROUTE = '/dashboard'
@@ -43,7 +44,15 @@ export const router = createBrowserRouter([
                 path: '/employees',
                 element: (
                     <PrivateRoute>
-                        <EmployeesList/>
+                        <EmployeesTable/>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: '/all-requests',
+                element: (
+                    <PrivateRoute>
+                        <AllLeaveRequests/>
                     </PrivateRoute>
                 ),
             },
