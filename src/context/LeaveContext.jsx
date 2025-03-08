@@ -68,13 +68,51 @@ export const LeaveProvider = ({ children }) => {
     }
   };
 
+
+  const handleEditEmployee = async (employeeId, updatedData) => {
+    try {
+      const response = await api.put(`/employes/${employeeId}`, updatedData, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
+      });
+      
+      setEmployees(prev => 
+        prev.map(emp => 
+          emp.id === employeeId ? { ...emp, ...response.data } : emp
+        )
+      );
+      toast.success('Employee updated successfully');
+      return true;
+    } catch (error) {
+      toast.error('Error updating employee');
+      return false;
+    }
+  };
+
+  const handleDeleteEmployee = async (employeeId) => {
+    try {
+      await api.delete(`/employes/${employeeId}`, 
+        {  headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
+      });
+      
+      setEmployees(prev => prev.filter(emp => emp.id !== employeeId));
+      toast.success('Employee deleted successfully');
+      return true;
+    } catch (error) {
+      toast.error('Error deleting employee');
+      return false;
+    }
+  };
+
+
   // Context value
   const value = {
     employees,
     leaveRequests,
     exitingIds,
     loading,
-    handleAction
+    handleAction,
+    handleEditEmployee,
+    handleDeleteEmployee
   };
 
   return (

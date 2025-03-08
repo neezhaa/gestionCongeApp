@@ -1,8 +1,7 @@
 // import React from 'react'
-import './Profile.css'
-import eyeOff from '../../assets/eye-off.svg'
-import profilePicture from '../../assets/profilePicture.svg'
-import eye from '../../assets/eye.svg'
+import eyeOff from '@/assets/eye-off.svg'
+import profilePicture from '@/assets/profilePicture.svg'
+import eye from '@/assets/eye.svg'
 import { useState } from 'react'
 
 
