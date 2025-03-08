@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 function Settings() {
   
   return (
-    <div className="bg-white w-[99%] h-fit p-10 m-2 border-2 border-gray-200 rounded-xl">
+    <div className="bg-white w-[94%] h-fit p-10 ml-[4.5rem] mr-auto my-2 shadow-xl rounded-xl">
       <h1 className="text-2xl font-bold mb-2">Settings</h1>
       <p className="text-muted-foreground">
         Manage your account settings and set e-mail preferences.

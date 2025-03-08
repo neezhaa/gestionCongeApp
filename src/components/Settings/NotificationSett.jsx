@@ -43,7 +43,7 @@ function NotificationSett() {
                     checked={selectedOption === "all"}
                     onChange={handleChange}
                   />
-                  <span className="font-normal text-sm">All new messages</span>
+                  <span className="font-normal">All new messages</span>
                 </label>
                 <label className="flex items-center space-x-3">
                   <input

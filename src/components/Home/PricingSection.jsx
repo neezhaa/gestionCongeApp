@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
-function Section6() {
+function PricingSection() {
   return (
-    <section>
+    <section id='PricingSection'>
         <div className="container mt-16 mx-auto px-6 py-12">
             <h2 className="mb-4 text-center text-2xl font-bold sm:px-40 sm:text-5xl">Choisissez le plan idéal pour vos besoins en gestion des congés</h2>
             <p className="text-center text-lg text-[#6c757d] sm:mb-16">Rejoignez la communauté croissante d&apos;organisations qui améliorent leurs processus de congé avec Congease.</p>
@@ -81,4 +81,4 @@ function Section6() {
   )
 }
 
-export default Section6
+export default PricingSection

@@ -92,3 +92,19 @@
 }
 
 
+.input-field {
+  @apply flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
+}
+
+.language-selector {
+  @apply inline-flex items-center justify-between w-full px-4 py-2 text-sm border rounded-md bg-background hover:bg-accent;
+}
+
+.language-option {
+  @apply flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-accent;
+}
+
+.submit-button {
+  @apply px-4 py-2 text-sm font-medium text-white bg-primary rounded-md hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+

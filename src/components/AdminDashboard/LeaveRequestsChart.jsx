@@ -1,6 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { parseISO, startOfYear, eachMonthOfInterval, format as dfnsFormat } from 'date-fns';
-import { useLeaveContext } from '../context/LeaveContext';
+import { useLeaveContext } from '../../context/LeaveContext';
 
 const processLeaveData = () => {
 

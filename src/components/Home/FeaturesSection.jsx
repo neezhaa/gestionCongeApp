@@ -1,7 +1,7 @@
 
-function Section5() {
+function FeaturesSection() {
     return (
-      <section>
+      <section id='FeaturesSection'>
           <div className="container mt-12 mx-auto px-6 py-6 md:py-12">
               <div className="rounded-3xl bg-[#e9f3fa] px-4 py-8 md:py-40">
                   <h2 className="mx-auto mb-4 max-w-4xl text-center text-2xl font-bold md:text-5xl">Révolutionnez la gestion des congés avec Congease</h2>
@@ -26,8 +26,8 @@ function Section5() {
                       <div className="mx-auto mb-4 mt-2 flex h-20 w-20 items-center justify-center rounded-full bg-[#e9f3fa] text-4xl">
                       <   span className="text-[#0f4c81]">3</span>
                       </div>
-                      <h4 className="mb-6 text-3xl font-semibold">Gestion des rôles personnalisable</h4>
-                      <p className="text-[#212529]">Attribuez facilement des rôles et des autorisations, vous permettant un contrôle total sur qui peut accéder à des fonctionnalités spécifiques sur la plateforme.</p>
+                      <h4 className="mb-6 text-3xl font-semibold">Mesures de sécurité plus robustes</h4>
+                      <p className="text-[#212529]">Bénéficiez de mesures de sécurité robustes qui protègent les données sensibles, vous offrant confiance en un système de gestion des congés conforme et sécurisé.</p>
                   </div>
               </div>
           </div>
@@ -35,4 +35,4 @@ function Section5() {
     )
   }
   
-  export default Section5
+  export default FeaturesSection

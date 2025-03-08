@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
-function Section3() {
+function AboutSection() {
   return (
-    <section>
+    <section id="AboutSection">
         <div className="container mx-auto px-6 lg:pt-24">
             <div className="flex flex-col items-stretch lg:flex-row">
                 <div className="flex flex-1 items-center justify-center rounded-3xl bg-[#e9f3fa] p-6 lg:w-1/2">
@@ -27,7 +27,7 @@ function Section3() {
                             <p className="mb-2 inline text-lg text-[#212529]">Congease a simplifié notre processus de gestion des congés, le rendant très facile pour les employés et les RH !</p>
                             <i className="fa-sharp fa-solid fa-quote-right relative -top-2 ml-1" aria-hidden="true"></i>
                             <p>
-                                <span className="font-semibold text-[#212529]">Marc Dupuis</span>
+                                <span className="font-semibold text-[#212529]">Imane Karem</span>
                                 <span className="pl-2 font-semibold text-[#0f4c81]">(Responsable des Opérations chez Tech Innovations)</span>
                             </p>
                         </div>
@@ -39,4 +39,4 @@ function Section3() {
   )
 }
 
-export default Section3
+export default AboutSection

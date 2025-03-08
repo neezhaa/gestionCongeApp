@@ -9,12 +9,12 @@ function Footer() {
                 </div>
                 <div className="mb-8 flex flex-col justify-center sm:flex-row">
                     <a href="/" className="mx-8 text-base text-[#6c757d] hover:text-[#0f4c81]">Home</a>
-                    <a href="/how-it-works" className="mx-8 text-base text-[#6c757d] hover:text-[#0f4c81]">How It Works</a>
-                    <a href="/features" className="mx-8 text-base text-[#6c757d] hover:text-[#0f4c81]">Features</a>
+                    <a href="#AboutSection" className="mx-8 text-base text-[#6c757d] hover:text-[#0f4c81]">How It Works</a>
+                    <a href="#FeaturesSection" className="mx-8 text-base text-[#6c757d] hover:text-[#0f4c81]">Features</a>
                     <a href="/faq" className="mx-8 text-base text-[#6c757d] hover:text-[#0f4c81]">FAQ</a>
                     <a href="/contact" className="mx-8 text-base text-[#6c757d] hover:text-[#0f4c81]">Contact Us</a>
                 </div>
-                <p className="text-base text-[#6c757d]">© 2025 Congease.All Rights Reserved</p>
+                <p className="text-base text-[#6c757d]">© 2025 Congease. All Rights Reserved</p>
                 </div>
         </footer>
     </div>

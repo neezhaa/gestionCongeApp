@@ -77,7 +77,7 @@ const EmployeesTable = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg mx-6 mt-8">
+    <div className="bg-white ml-[5.5rem] p-6 rounded-lg shadow-lg mr-6 mt-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
         <h2 className="text-xl font-bold">Employees Directory</h2>
         <div className="flex gap-4 w-full sm:w-96">

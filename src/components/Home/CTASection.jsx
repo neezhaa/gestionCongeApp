@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
-function Section8() {
+function CTASection() {
     return (
-      <section className="my-12 bg-[#e9f3fa] py-6" >
+      <section id='CTASection' className="my-12 bg-[#e9f3fa] py-6" >
           <div className="container mx-auto flex flex-col sm:flex-row">
               <div className="mb-6 flex w-full flex-col items-center md:mb-0 md:w-[55%] md:flex-row">
                   <img src="https://cdni.iconscout.com/illustration/premium/thumb/man-have-no-annual-leave-to-rest-from-hard-work-12513375-10207361.png" alt="CTA" className="h-auto w-full"/>
@@ -22,4 +22,4 @@ function Section8() {
     )
   }
   
-  export default Section8
+  export default CTASection

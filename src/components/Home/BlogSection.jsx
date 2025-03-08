@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
-function Section6() {
+function BlogSection() {
     return (
-      <section>
+      <section id="BlogSection">
           <div className="container mx-auto px-4 py-12">
               <h2 className="mb-6 text-center text-2xl font-bold sm:text-5xl">Découvrez nos derniers articles</h2>
               <p className="mx-auto mb-8 max-w-4xl text-center text-lg font-light text-[#6c757d] sm:text-xl">Plongez dans nos articles éclairants qui vont transformer votre approche de la gestion des congés. Chaque texte est conçu pour vous informer sur les meilleures pratiques, les stratégies innovantes et les outils efficaces pour optimiser la gestion des congés au sein de votre entreprise.</p>
@@ -49,4 +49,4 @@ function Section6() {
     )
   }
   
-  export default Section6
+  export default BlogSection

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function Section1() {
+function HeroSection() {
   return (
     <section className="bg-gradient-to-b from-[#fff] to-[#e9f3fa] lg:py-2">
         <div className="container mx-auto mb-24 px-6">
@@ -18,7 +18,7 @@ function Section1() {
                         <p className="mb-2 inline text-lg text-[#212529]">Congease a transformé notre processus de gestion des congés, le rendant efficace et convivial pour tous les utilisateurs.</p>
                             <i className="fa-sharp fa-solid fa-quote-right relative -top-2 ml-1"></i>
                         <p>
-                            <span className="font-semibold text-[#212529]">Alice Dupont</span>
+                            <span className="font-semibold text-[#212529]">Ahmed AZIZ</span>
                             <span className="pl-2 font-semibold text-[#0f4c81]">(Directrice RH chez Innovations Corp)</span>
                         </p>
                         </div>
@@ -33,4 +33,4 @@ function Section1() {
   )
 }
 
-export default Section1
+export default HeroSection

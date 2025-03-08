@@ -1,12 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-const options = ["Recents", "Home", "Notifications", "Calendar"];
+const options = ["Users", "Notifications", "Calendar"];
 
 function DisplaySett() {
   const [checkedItems, setCheckedItems] = useState({
-    Recents: false,
-    Home: false,
+    Users: false,
     Notifications: false,
     Calendar: false,
   });

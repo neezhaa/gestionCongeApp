@@ -1,13 +1,13 @@
-import LeaveRequestsChart from '../components/LeaveRequestsChart';
-import AdminLeaveRequests from '../components/AdminLeaveRequests/AdminLeaveRequests';
-import Stats from '../components/Stats';
+import LeaveRequestsChart from '../components/AdminDashboard/LeaveRequestsChart';
+import AdminLeaveRequests from '../components/AdminDashboard/AdminLeaveRequests';
+import Stats from '../components/AdminDashboard/Stats';
 import { useAuth } from "../context/AuthContext";
 
 function Dashboard() {
   const { auth } = useAuth();
   return auth.user.is_admin ? 
     (
-      <div className="h-screen bg-[#f0f5f9]">
+      <div className="h-screen pl-[4rem] bg-[#f0f5f9]">
         <Stats/>
         <div className="mt-6">
             <div className="flex sm:flex-col lg:flex-row md:flex-row gap-1 p-6 min-h-screen">

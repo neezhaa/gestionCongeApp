@@ -2,32 +2,20 @@ import { createBrowserRouter } from "react-router-dom"
 import NotFound from "../pages/NotFound.jsx";
 import Home from "../pages/Home.jsx";
 import Login from "../pages/Login.jsx";
-// import Profile from "../pages/Profile.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
 import Settings from "../pages/Settings.jsx";
 import Layout from "../layouts/Layout.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
-import Profile from "../pages/Profile.jsx";
-import AccountSett from "../components/AccountSett.jsx";
-import NotificationSett from "../components/NotificationSett.jsx";
-import AppearenceSett from "../components/AppearenceSett.jsx";
-import DisplaySett from "../components/DisplaySett.jsx";
+import Profile from "../components/Settings/Profile.jsx";
+import AccountSett from "../components/Settings/AccountSett.jsx";
+import NotificationSett from "../components/Settings/NotificationSett.jsx";
+import AppearenceSett from "../components/Settings/AppearenceSett.jsx";
+import DisplaySett from "../components/Settings/DisplaySett.jsx";
 import PublicRoute from "./PublicRoute.jsx";
 import EmployeesTable from "../pages/EmployeesTable.jsx";
 import AllLeaveRequests from "../pages/AllLeaveRequests.jsx";
 
-export const LOGIN_ROUTE = '/login'
-export const EMPLOYEE_DASHBOARD_ROUTE = '/dashboard'
-const ADMIN_BASE_ROUTE = '/admin'
-export const ADMIN_DASHBOARD_ROUTE = ADMIN_BASE_ROUTE + '/dashboard'
-export const redirectToDashboard = (roleType) => {
-    switch (roleType){
-        case 'employee':
-            return (EMPLOYEE_DASHBOARD_ROUTE)
-        case 'admin' :
-            return (ADMIN_DASHBOARD_ROUTE)
-    }
-}
+
 export const router = createBrowserRouter([
     {
         element: <Layout/>,

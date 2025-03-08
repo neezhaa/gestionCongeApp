@@ -1,5 +1,5 @@
 import { CheckIcon, DocumentCheckIcon, UserGroupIcon, XCircleIcon } from '@heroicons/react/24/outline';
-import { useLeaveContext } from '../context/LeaveContext';
+import { useLeaveContext } from '../../context/LeaveContext';
 
 function AdminDashboard() {
     const { employees, leaveRequests } = useLeaveContext();
