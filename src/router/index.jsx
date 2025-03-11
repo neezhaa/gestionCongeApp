@@ -14,6 +14,7 @@ import DisplaySett from "../components/Settings/DisplaySett.jsx";
 import PublicRoute from "./PublicRoute.jsx";
 import EmployeesTable from "../pages/EmployeesTable.jsx";
 import AllLeaveRequests from "../pages/AllLeaveRequests.jsx";
+import EmployeeDashboard from "../pages/EmployeeDashboard.jsx";
 
 
 export const router = createBrowserRouter([
@@ -26,6 +27,14 @@ export const router = createBrowserRouter([
                     <PrivateRoute>
                         <Dashboard/>
                     </PrivateRoute>
+                ),
+            },
+            {
+                path: '/employee-dashboard',
+                element: (
+                  <PrivateRoute>
+                    <EmployeeDashboard />
+                  </PrivateRoute>
                 ),
             },
             {
