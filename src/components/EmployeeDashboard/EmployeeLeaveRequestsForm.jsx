@@ -3,7 +3,6 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useAuth } from "../../context/AuthContext";
-import { log } from "console";
 
 function EmployeeLeaveRequestForm() {
   const { auth } = useAuth(); // Récupérer les informations de l'employé connecté
