@@ -216,10 +216,6 @@
 
 // export default AdminLeaveRequests;
 
-
-
-
-
 import { format } from 'date-fns';
 import { 
   BellAlertIcon,
@@ -238,6 +234,8 @@ const LeaveRequestsTable = ({ maxItems }) => {
         exitingIds, 
         loading 
     } = useLeaveContext();
+
+    
 
     // Tri et limitation stricte
     const sortedRequests = [...leaveRequests]

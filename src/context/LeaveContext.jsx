@@ -122,7 +122,7 @@ export const LeaveProvider = ({ children }) => {
   );
 };
 
-export const useLeaveContext = () => {
+export  const useLeaveContext = () => {
   const context = useContext(LeaveContext);
   if (!context) {
     throw new Error('useLeaveContext must be used within a LeaveProvider');
