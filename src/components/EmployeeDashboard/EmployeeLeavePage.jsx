@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useAuth } from "../../context/AuthContext";
+import EmployeeLeaveRequestsForm from "./EmployeeLeaveRequestsForm";
+import EmployeeLeaveRequestsList from "./EmployeeLeaveRequestsList";
 
-function EmployeeLeaveRequestsList({}) {
-  const { auth } = useAuth(); // Récupérer les informations de l'employé connecté
+function EmployeeLeavePage() {
   const [demandes, setDemandes] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +17,8 @@ function EmployeeLeaveRequestsList({}) {
       });
 
       if (response.status === 200) {
-        setDemandes(response.data.data);
+        console.log("Données reçues :", response.data.data); // Vérifier les données
+        setDemandes(response.data.data || []); // Utiliser un tableau vide si response.data.data est undefined
       }
     } catch (error) {
       console.error("Erreur lors de la récupération des demandes :", error);
@@ -28,6 +29,7 @@ function EmployeeLeaveRequestsList({}) {
 
   // Fonction pour ajouter une nouvelle demande à la liste
   const handleNewDemande = (newDemande) => {
+    console.log("Nouvelle demande :", newDemande); // Vérifier la nouvelle demande
     setDemandes((prevDemandes) => [newDemande, ...prevDemandes]);
   };
 
@@ -42,25 +44,13 @@ function EmployeeLeaveRequestsList({}) {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Mes demandes de congé</h2>
+      {/* Formulaire de demande de congé */}
+      <EmployeeLeaveRequestsForm onDemandeSubmit={handleNewDemande} />
 
-      {/* Liste des demandes */}
-      {demandes.length > 0 ? (
-        <ul className="space-y-4">
-          {demandes.map((demande) => (
-            <li key={demande.id} className="p-4 border rounded-lg">
-              <p><strong>Date de début :</strong> {demande.date_debut}</p>
-              <p><strong>Date de fin :</strong> {demande.date_fin}</p>
-              <p><strong>Motif :</strong> {demande.motif_conge}</p>
-              <p><strong>Statut :</strong> {demande.statut}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Aucune demande de congé trouvée.</p>
-      )}
+      {/* Liste des demandes de congé */}
+      <EmployeeLeaveRequestsList demandes={demandes} />
     </div>
   );
 }
 
-export default EmployeeLeaveRequestsList;
+export default EmployeeLeavePage;
