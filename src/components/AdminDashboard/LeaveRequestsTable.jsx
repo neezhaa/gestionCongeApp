@@ -13,7 +13,8 @@ const LeaveRequestsTable = ({ maxItems }) => {
     leaveRequests, 
     handleAction, 
     exitingIds, 
-    loading 
+    loading,
+    employees 
   } = useLeaveContext();
 
   // Vérifiez que leaveRequests est un tableau
@@ -28,6 +29,8 @@ const LeaveRequestsTable = ({ maxItems }) => {
   const sortedRequests = [...leaveRequests]
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
     .slice(0, maxItems || leaveRequests.length);
+
+    const employes = [...employees]
 
   const shouldShowLink = maxItems && leaveRequests.length > maxItems;
 
@@ -45,6 +48,7 @@ const LeaveRequestsTable = ({ maxItems }) => {
       ))}
     </div>
   );
+
 
   return (
     <div className="bg-white rounded-xl shadow-lg m-[6px_0px_0px_6px] relative">
@@ -72,20 +76,27 @@ const LeaveRequestsTable = ({ maxItems }) => {
             }`}
           >
             {/* Employee Info */}
-            <div className="flex items-center w-1/4">
-              <img
-                className="h-9 mr-2.5"
-                src={request.employe.genre === 'male' 
-                  ? "https://img.freepik.com/premium-vector/office-worker-wearing-glasses_277909-81.jpg" 
-                  : "https://img.freepik.com/premium-vector/business-woman-character-vector-illustration_1133257-2432.jpg"}
-                alt="profile"
-              />
-              <div className="ml-2">
-                <p className="font-medium">{request.employe.nom} {request.employe.prenom}</p>
-                <p className="font-normal text-xs text-[#00000078] -mt-1">{request.employe.poste}</p>
-              </div>
-            </div>
-
+            {
+              employes.map((emp, index) => {
+                if(emp.id == request.employe_id){
+                  
+                  return (
+                      <div className="flex items-center w-1/4" key={index}>
+                          <img
+                            className="h-9 mr-2.5"
+                            src="https://img.freepik.com/premium-vector/office-worker-wearing-glasses_277909-81.jpg" 
+                            alt="profile"
+                          />
+                          <div className="ml-2">
+                            <p className="font-medium">{emp.nom} {emp.prenom}</p>
+                            <p className="font-normal text-xs text-[#00000078] -mt-1">{emp.poste}</p>
+                          </div>
+                      </div>
+                            )
+                }
+              })
+            }
+            
             {/* Leave Type */}
             <div className="flex items-center w-1/4">
               <BellAlertIcon className="h-5 w-5 mr-2.5 text-gray-600" />

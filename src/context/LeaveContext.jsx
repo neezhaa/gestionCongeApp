@@ -15,7 +15,7 @@ export const LeaveProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [employeesRes, leaveRequestsRes] = await Promise.all([
+        const [employees, leaveRequestsRes] = await Promise.all([
           axios.get('http://localhost:8000/api/employes'),
           axios.get('http://localhost:8000/api/conges', 
             { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
@@ -23,8 +23,8 @@ export const LeaveProvider = ({ children }) => {
         ]);
 
         // Vérifiez que les données sont des tableaux
-        setEmployees(Array.isArray(employeesRes.data) ? employeesRes.data : []);
-        setLeaveRequests(Array.isArray(leaveRequestsRes.data) ? leaveRequestsRes.data : []);
+        setEmployees(Array.isArray(employees.data) ? employees.data : []);
+        setLeaveRequests(Array.isArray(leaveRequestsRes.data.data) ? leaveRequestsRes.data.data : []);
       } catch (error) {
         toast.error('Erreur de chargement des données');
         setLeaveRequests([]); // Assurez-vous que leaveRequests reste un tableau
@@ -41,20 +41,9 @@ export const LeaveProvider = ({ children }) => {
     try {
       setExitingIds(prev => [...prev, requestId]);
       const request = leaveRequests.find(r => r.id === requestId);
-
-      if (!request) {
-        toast.error('Demande introuvable');
-        return;
-      }
-
-      // Update request status
-      await api.put(`/conges/${requestId}`, 
-        { statut: action === 'approve' ? 'accepté' : 'refusé' }, 
-        { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
-      );
-
+      
       // Send notification
-      await api.post('/notifications',
+      await api.post('notifications',
         {
           employe_id: request.employe_id,
           type: 'reponse_demande',
@@ -66,7 +55,10 @@ export const LeaveProvider = ({ children }) => {
 
       // Update local state
       setLeaveRequests(prev => prev.filter(r => r.id !== requestId));
-      toast.success(`Demande ${action === 'approve' ? 'acceptée' : 'rejetée'}`);
+      toast.success(`Demande ${action === 'approve' ? 'acceptée' : 'rejetée'} avec succes`);
+
+
+
     } catch (error) {
       toast.error('Erreur lors du traitement de la demande');
       setExitingIds(prev => prev.filter(id => id !== requestId));
