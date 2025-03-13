@@ -8,10 +8,9 @@ const LeaveContext = createContext();
 
 export const LeaveProvider = ({ children }) => {
   const [employees, setEmployees] = useState([]);
-  const [leaveRequests, setLeaveRequests] = useState([]);
+  const [leaveRequests, setLeaveRequests] = useState([]); // Toujours initialisé comme un tableau
   const [exitingIds, setExitingIds] = useState([]);
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,62 +18,67 @@ export const LeaveProvider = ({ children }) => {
         const [employeesRes, leaveRequestsRes] = await Promise.all([
           axios.get('http://localhost:8000/api/employes'),
           axios.get('http://localhost:8000/api/conges', 
-          { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
+            { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
           )
         ]);
-        
-        setEmployees(employeesRes.data);
-        setLeaveRequests(leaveRequestsRes.data);
+
+        // Vérifiez que les données sont des tableaux
+        setEmployees(Array.isArray(employeesRes.data) ? employeesRes.data : []);
+        setLeaveRequests(Array.isArray(leaveRequestsRes.data) ? leaveRequestsRes.data : []);
       } catch (error) {
         toast.error('Erreur de chargement des données');
+        setLeaveRequests([]); // Assurez-vous que leaveRequests reste un tableau
       } finally {
         setLoading(false);
       }
     };
-    
+
     fetchData();
   }, []);
 
   // Handle approve/reject actions
   const handleAction = async (requestId, action) => {
     try {
-        setExitingIds(prev => [...prev, requestId]);
-        const request = leaveRequests.find(r => r.id === requestId);
-      
-        // Update request status
-        await api.put(`/conges/${requestId}`, 
-            { statut: action === 'approve' ? 'accepté' : 'refusé'}, 
-            { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
-        );
+      setExitingIds(prev => [...prev, requestId]);
+      const request = leaveRequests.find(r => r.id === requestId);
 
-        // Send notification
-        await api.post('/notifications',
-            {
-                employe_id: request.employe_id,
-                type: 'reponse_demande',
-                message: `Demande ${action === 'approve' ? 'acceptée' : 'rejetée'}`,
-                demande_conge_id: requestId
-            }, 
-            { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
-        );
+      if (!request) {
+        toast.error('Demande introuvable');
+        return;
+      }
 
-        // Update local state
-        setLeaveRequests(prev => prev.filter(r => r.id !== requestId));
-        toast.success(`Demande ${action === 'approve' ? 'acceptée' : 'rejetée'}`);
-      
+      // Update request status
+      await api.put(`/conges/${requestId}`, 
+        { statut: action === 'approve' ? 'accepté' : 'refusé' }, 
+        { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
+      );
+
+      // Send notification
+      await api.post('/notifications',
+        {
+          employe_id: request.employe_id,
+          type: 'reponse_demande',
+          message: `Demande ${action === 'approve' ? 'acceptée' : 'rejetée'}`,
+          demande_conge_id: requestId
+        }, 
+        { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
+      );
+
+      // Update local state
+      setLeaveRequests(prev => prev.filter(r => r.id !== requestId));
+      toast.success(`Demande ${action === 'approve' ? 'acceptée' : 'rejetée'}`);
     } catch (error) {
       toast.error('Erreur lors du traitement de la demande');
       setExitingIds(prev => prev.filter(id => id !== requestId));
     }
   };
 
-
   const handleEditEmployee = async (employeeId, updatedData) => {
     try {
       const response = await api.put(`/employes/${employeeId}`, updatedData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
       });
-      
+
       setEmployees(prev => 
         prev.map(emp => 
           emp.id === employeeId ? { ...emp, ...response.data } : emp
@@ -91,9 +95,9 @@ export const LeaveProvider = ({ children }) => {
   const handleDeleteEmployee = async (employeeId) => {
     try {
       await api.delete(`/employes/${employeeId}`, 
-        {  headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
+        { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
       });
-      
+
       setEmployees(prev => prev.filter(emp => emp.id !== employeeId));
       toast.success('Employee deleted successfully');
       return true;
@@ -102,7 +106,6 @@ export const LeaveProvider = ({ children }) => {
       return false;
     }
   };
-
 
   // Context value
   const value = {
@@ -122,7 +125,7 @@ export const LeaveProvider = ({ children }) => {
   );
 };
 
-export  const useLeaveContext = () => {
+export const useLeaveContext = () => {
   const context = useContext(LeaveContext);
   if (!context) {
     throw new Error('useLeaveContext must be used within a LeaveProvider');

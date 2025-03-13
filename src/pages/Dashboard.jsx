@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import LeaveRequestsChart from '../components/AdminDashboard/LeaveRequestsChart';
-import AdminLeaveRequests from '../components/AdminDashboard/AdminLeaveRequests';
+import AdminLeaveRequests from '../components/AdminDashboard/LeaveRequestsTable';
 import Stats from '../components/AdminDashboard/Stats';
 import { useAuth } from "../context/AuthContext";
 
