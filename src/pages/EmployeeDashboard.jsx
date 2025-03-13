@@ -3,7 +3,6 @@ import { useAuth } from "../context/AuthContext";
 import EmployeeLeaveBalance from "../components/EmployeeDashboard/EmployeeLeaveBalance";
 import EmployeeLeaveRequestsForm from "../components/EmployeeDashboard/EmployeeLeaveRequestsForm";
 import EmployeeLeaveRequestsList from "../components/EmployeeDashboard/EmployeeLeaveRequestsList";
-import EmployeeNotifications from "../components/EmployeeDashboard/EmployeeNotifications";
 import { Navigate } from "react-router-dom";
 
 function EmployeeDashboard() {
@@ -31,11 +30,6 @@ function EmployeeDashboard() {
         <div className="bg-white rounded-lg shadow-lg p-6 md:col-span-2">
           <EmployeeLeaveRequestsList />
         </div>
-
-        {/* Notifications */}
-        {/* <div className="bg-white rounded-lg shadow-lg p-6 md:col-span-2 lg:col-span-3">
-          <EmployeeNotifications />
-        </div> */}
       </div>
     </div>
   );

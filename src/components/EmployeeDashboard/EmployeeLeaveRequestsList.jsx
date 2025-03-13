@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useAuth } from "../../context/AuthContext";
 
-function EmployeeLeaveRequestsList({}) {
-  const { auth } = useAuth(); // Récupérer les informations de l'employé connecté
+function EmployeeLeaveRequestsList() {
   const [demandes, setDemandes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const authUser = JSON.parse(localStorage.getItem('authUser')); // Assurez-vous que l'utilisateur est stocké
 
   // Fonction pour récupérer les demandes de congé
   const fetchDemandes = async () => {
@@ -15,20 +14,21 @@ function EmployeeLeaveRequestsList({}) {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
       });
-
+  
       if (response.status === 200) {
-        setDemandes(response.data.data);
+        console.log(response.data.data)
+        const filteredDemandes = response.data.data.filter(
+          (demande) => demande.employe_id === authUser.id
+        );
+        console.log(filteredDemandes)
+
+        setDemandes(filteredDemandes);
       }
     } catch (error) {
       console.error("Erreur lors de la récupération des demandes :", error);
     } finally {
       setLoading(false);
     }
-  };
-
-  // Fonction pour ajouter une nouvelle demande à la liste
-  const handleNewDemande = (newDemande) => {
-    setDemandes((prevDemandes) => [newDemande, ...prevDemandes]);
   };
 
   // Charger les demandes au montage du composant
