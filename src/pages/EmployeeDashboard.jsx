@@ -33,9 +33,9 @@ function EmployeeDashboard() {
         </div>
 
         {/* Notifications */}
-        <div className="bg-white rounded-lg shadow-lg p-6 md:col-span-2 lg:col-span-3">
+        {/* <div className="bg-white rounded-lg shadow-lg p-6 md:col-span-2 lg:col-span-3">
           <EmployeeNotifications />
-        </div>
+        </div> */}
       </div>
     </div>
   );
