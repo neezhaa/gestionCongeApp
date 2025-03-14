@@ -41,7 +41,15 @@ export const LeaveProvider = ({ children }) => {
     try {
       setExitingIds(prev => [...prev, requestId]);
       const request = leaveRequests.find(r => r.id === requestId);
-      
+      const employe = employees.find(e => e.id == request.employe_id)
+      console.log(employe)
+      if (action === 'approve') {
+        await api.put(`employes/${request.employe_id}`, 
+          { solde_conge: employe.solde_conge - request.nbr_jours_demandes },
+          { headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
+        );
+      }
+  
       // Send notification
       await api.post('notifications',
         {

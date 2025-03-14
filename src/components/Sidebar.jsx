@@ -11,24 +11,26 @@ import {
 } from '@heroicons/react/24/outline'
 import { useEffect, useState } from 'react'
 import profilePicture from '../assets/profilePicture.svg'
-
+import api from "../services/api"
 
 function Sidebar() {
     const [activeItem, setActiveItem] = useState("dashboard");
     const navigate = useNavigate();
     const { logout } = useAuth();
     const [activeNotif, setActiveNotif] = useState(false)
-    const [authUser, setAuthUser] = useState(null);
-    useEffect(() => {
-        const fetchAuthUser = async () => {
-            const response = await api.get('/auth-user', {
-                headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
-            });
-            setAuthUser(response.data);
-        };
+    const { auth } = useAuth();
+
+    // const [authUser, setAuthUser] = useState(null);
+    // useEffect(() => {
+    //     const fetchAuthUser = async () => {
+    //         const response = await api.get('/auth-user', {
+    //             headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
+    //         });
+    //         setAuthUser(response.data);
+    //     };
     
-        fetchAuthUser();
-    }, []);
+    //     fetchAuthUser();
+    // }, []);
 
 
     const handleItemClick = (item) => {
@@ -87,7 +89,7 @@ function Sidebar() {
                 >
                     <CalendarIcon className="w-6 h-6" />
                 </button>
-                {authUser?.is_admin ? (
+                {auth?.user?.is_admin ? (
                     <NavLink
                         to='/all-requests'
                         onClick={() => handleItemClick('all-requests')}
