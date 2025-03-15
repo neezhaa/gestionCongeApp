@@ -17,7 +17,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen pl-[5.5rem] bg-gray-50 p-6">
+    <div className="min-h-screen pl-[5.5rem] bg-[#f0f5f9] p-6">
       <LeaveStats 
         employee={employees.find(e => e.id === auth.user.id)} 
         leaveRequests={leaveRequests}

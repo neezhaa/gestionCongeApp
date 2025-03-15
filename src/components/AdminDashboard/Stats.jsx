@@ -1,4 +1,4 @@
-import { CheckIcon, DocumentCheckIcon, UserGroupIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import { ClockIcon, CheckCircleIcon, UserGroupIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import { useLeaveContext } from '../../context/LeaveContext';
 
 function AdminDashboard() {
@@ -18,14 +18,14 @@ function AdminDashboard() {
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-lg">
                         <div className='bg-yellow-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
-                            <CheckIcon className="w-6 h-6 text-gray-700" />
+                            <ClockIcon className="w-6 h-6 text-gray-700" />
                         </div>
                         <h2 className="text-xl font-bold mb-4">Pending Leave Requests</h2>
                         <p className="text-3xl font-bold mt-2">{leaveRequests.filter(req => req.statut === 'en attente').length}</p>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-lg">
                         <div className='bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
-                            <DocumentCheckIcon className="w-6 h-6 text-gray-700" />
+                            <CheckCircleIcon className="w-6 h-6 text-gray-700" />
                         </div>
                         <h2 className="text-xl font-bold mb-4">Approved Leave Requests</h2>
                         <p className="text-3xl font-bold mt-2">{leaveRequests.filter(req => req.statut === 'accepté').length}</p>

@@ -53,7 +53,7 @@ const LeaveForm = ({ isOpen, onClose, employeeId }) => {
                 <label className="block text-sm font-medium mb-1">Nombre de jours</label>
                 <div className="relative">
                   <input
-                    type="number"
+                    type="text"
                     name="nbr_jours_demandes"
                     value={formData.nbr_jours_demandes}
                     onChange={(e) => setFormData({...formData, nbr_jours_demandes: e.target.value})}

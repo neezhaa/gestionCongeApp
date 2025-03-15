@@ -45,7 +45,7 @@ function Login() {
                         bg-center bg-no-repeat bg-contain  mt-[-11px]
                         h-[17px] w-[17px]">
                     </span>
-                    To home page
+                    Page d&apos;accueil
                 </Link>
 
                 <div className="flex items-center">
@@ -62,7 +62,7 @@ function Login() {
                                 </defs>
                             </svg>
                             <span className="font-normal mt-px pr-[30px] relative">
-                                English
+                                Français
                                 <span className={`flex items-center justify-center 
                                     absolute right-0 top-[-0.05rem] 
                                     bg-[url('https://pocketoption.com/themes/2017-09/img/icon-drop-down.svg')] 
@@ -81,7 +81,7 @@ function Login() {
                                     :
                                  "opacity-0 invisible pointer-events-none scale-0"}`}>
                             <Link className="flex items-center rounded-[10px] text-[#1e385b] text-[14px] py-[0.313rem] px-[0.625rem] no-underline transition-all duration-500 w-[70px] hover:bg-[#f0f5f9]" href="/fr/login/">
-                                Français
+                                English
                             </Link>
                         
                             <Link className="flex items-center rounded-[10px] text-[#1e385b] text-[14px] py-[0.313rem] px-[0.625rem] no-underline transition-all duration-500 w-[70px] hover:bg-[#f0f5f9]" href="/ar/login/">
@@ -94,9 +94,14 @@ function Login() {
             </div>
         </header>
         <div className="bg-white flex flex-col items-center justify-center max-w-[600px] rounded-[10px] pt-[47px] pb-[20px] w-full h-auto mt-[45px] mb-[20px]">
-            <h1 className='text-[32px] font-semibold tracking-[1px] leading-[1.1] m-0'>Sign In</h1>
+            <h1 className='text-[32px] font-semibold tracking-[1px] leading-[1.1] m-0'>Connexion</h1>
             <div className='text-[#535c6d] py-[12px] px-[40px] text-center'>
-                    <p className="inline-block mb-[27px] whitespace-nowrap text-[#535c6d] text-center">Not registered yet?<Link className='ml-[20px] link-b font-normal text-[#1e385b] pb-1 no-underline border-b border-[#0099fa] transition-all duration-500' to="">Registration</Link></p>
+                    <p className="inline-block mb-[27px] whitespace-nowrap text-[#535c6d] text-center">
+                        Pas encore inscrit ?
+                        <Link className='ml-[20px] link-b font-normal text-[#1e385b] pb-1 no-underline border-b border-[#0099fa] transition-all duration-500' to="">
+                            S&apos;inscrire
+                        </Link>
+                    </p>
 
                     <form onSubmit={handleSubmit} className='mx-auto max-w-[420px]'>
                     <div className='mb-[20px]'>
@@ -114,7 +119,7 @@ function Login() {
                         <input 
                             type="password" 
                             value={password} 
-                            placeholder='Password *' 
+                            placeholder='Mot de passe *' 
                             onChange={ e => setPassword(e.target.value)}
                             className='bg-transparent border-0 border-b border-gray-400 
                                 shadow-none text-[#758b9d] 
@@ -126,7 +131,7 @@ function Login() {
                             <div className="block my-[10px] relative">
                                 <p className="text-[#758b9d] text-[14px]">
                                     <input id='remember' className='absolute h-[15px] left-0 top-[3px] mt-[1px] width-[15px]' type="checkbox"/>
-                                    <label htmlFor='remember' className='pl-[23px]'>Remember me</label>
+                                    <label htmlFor='remember' className='pl-[23px]'>Se souvenir de moi</label>
                                 </p>
                             </div>
                             <div>
@@ -136,11 +141,11 @@ function Login() {
                                     bg-center bg-no-repeat bg-contain 
                                     h-[16px] w-[16px]">
                                 </span>
-                                Password recovery</Link>
+                                Mot de passe oublié ?</Link>
                             </div>
                         </div>
                     </div>
-                    <div className="submit-btn-wrap">
+                    <div className="submit-btn-wrap flex items-center justify-center">
                     <button 
                         className="flex items-center justify-center bg-gradient-to-r from-[#0099fa] to-[#002ed9] 
                                     bg-[length:115%_auto] border-0 rounded-[10px] 
@@ -152,7 +157,7 @@ function Login() {
                                     hover:brightness-110" 
                         type="submit">
                         
-                        Sign In
+                        Se connecter
 
                         {loading && (
                             <div className="flex items-center ml-2">

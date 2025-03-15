@@ -9,9 +9,8 @@ import {
   Cog6ToothIcon,
   ArrowLeftOnRectangleIcon
 } from '@heroicons/react/24/outline'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import profilePicture from '../assets/profilePicture.svg'
-import api from "../services/api"
 
 function Sidebar() {
     const [activeItem, setActiveItem] = useState("dashboard");
@@ -19,19 +18,6 @@ function Sidebar() {
     const { logout } = useAuth();
     const [activeNotif, setActiveNotif] = useState(false)
     const { auth } = useAuth();
-
-    // const [authUser, setAuthUser] = useState(null);
-    // useEffect(() => {
-    //     const fetchAuthUser = async () => {
-    //         const response = await api.get('/auth-user', {
-    //             headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
-    //         });
-    //         setAuthUser(response.data);
-    //     };
-    
-    //     fetchAuthUser();
-    // }, []);
-
 
     const handleItemClick = (item) => {
       setActiveItem(item);
@@ -42,10 +28,6 @@ function Sidebar() {
       navigate('/login');
     };
 
-    // const handleNotificationToggle = () => {
-    //   setActiveNotif(prev => !prev)
-    // }
-
     return (
         <div className="fixed left-0 top-0 h-screen w-16 flex flex-col bg-white shadow-lg z-50">
             {activeNotif && <Notifications changeStateNotif={setActiveNotif} />}
@@ -55,7 +37,7 @@ function Sidebar() {
                 <img 
                     src="/logo.svg" 
                     alt="Logo" 
-                    className="w-9 h-9 cursor-pointer"
+                    className="w-9 h-9 cursor-pointer transition-transform hover:scale-105"
                 />
             </div>
 
@@ -64,39 +46,51 @@ function Sidebar() {
                 <NavLink 
                     to="/"
                     onClick={() => handleItemClick('dashboard')}
-                    className={`p-3 rounded-lg transition-colors ${activeItem === 'dashboard' ? 
-                        'bg-blue-50 text-blue-600 border-r-4 border-blue-500' : 
-                        'text-gray-500 hover:bg-gray-100'}`}
+                    className={`group relative p-3 rounded-lg transition-colors ${
+                      activeItem === 'dashboard' 
+                        ? 'bg-blue-50 text-blue-600 border-r-4 border-blue-500' 
+                        : 'text-gray-500 hover:bg-gray-100'
+                    }`}
                 >
                     <HomeIcon className="w-6 h-6" />
+                    <span className="sidebar-tooltip">Dashboard</span>
                 </NavLink>
 
-                <NavLink 
-                    to="/employees"
-                    onClick={() => handleItemClick('employees')}
-                    className={`p-3 rounded-lg transition-colors ${activeItem === 'employees' ? 
-                        'bg-blue-50 text-blue-600 border-r-4 border-blue-500' : 
-                        'text-gray-500 hover:bg-gray-100'}`}
-                >
-                    <UsersIcon className="w-6 h-6" />
-                </NavLink>
-                
+                {auth?.user?.is_admin? (
+                    <NavLink 
+                        to="/employees"
+                        onClick={() => handleItemClick('employees')}
+                        className={`group relative p-3 rounded-lg transition-colors ${
+                          activeItem === 'employees' 
+                            ? 'bg-blue-50 text-blue-600 border-r-4 border-blue-500' 
+                            : 'text-gray-500 hover:bg-gray-100'
+                        }`}
+                    >
+                        <UsersIcon className="w-6 h-6" />
+                        <span className="sidebar-tooltip">Employés</span>
+                    </NavLink>
+                ) : null}
+
                 <button
                     onClick={() => handleItemClick('calendar')}
-                    className={`p-3 rounded-lg transition-colors ${activeItem === 'calendar' ? 
-                        'bg-blue-50 text-blue-600 border-r-4 border-blue-500' : 
-                        'text-gray-500 hover:bg-gray-100'}`}
+                    className={`group relative p-3 rounded-lg transition-colors ${
+                      activeItem === 'calendar' 
+                        ? 'bg-blue-50 text-blue-600 border-r-4 border-blue-500' 
+                        : 'text-gray-500 hover:bg-gray-100'
+                    }`}
                 >
                     <CalendarIcon className="w-6 h-6" />
+                    <span className="sidebar-tooltip">Calendrier</span>
                 </button>
+
                 {auth?.user?.is_admin ? (
                     <NavLink
                         to='/all-requests'
                         onClick={() => handleItemClick('all-requests')}
-                        className={`p-3 rounded-lg transition-colors relative ${
-                            activeItem === 'notification'
-                                ? 'bg-blue-50 text-blue-600 border-r-4 border-blue-500'
-                                : 'text-gray-500 hover:bg-gray-100'
+                        className={`group relative p-3 rounded-lg transition-colors ${
+                          activeItem === 'all-requests'
+                            ? 'bg-blue-50 text-blue-600 border-r-4 border-blue-500'
+                            : 'text-gray-500 hover:bg-gray-100'
                         }`}
                     >
                         <BellIcon className="w-6 h-6" />
@@ -104,14 +98,16 @@ function Sidebar() {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                         </span>
+                        <span className="sidebar-tooltip">Demandes</span>
                     </NavLink>
-                ) : <NavLink
+                ) : (
+                    <NavLink
                         to='/all-demandes'
                         onClick={() => handleItemClick('all-requests')}
-                        className={`p-3 rounded-lg transition-colors relative ${
-                            activeItem === 'notification'
-                                ? 'bg-blue-50 text-blue-600 border-r-4 border-blue-500'
-                                : 'text-gray-500 hover:bg-gray-100'
+                        className={`group relative p-3 rounded-lg transition-colors ${
+                          activeItem === 'all-requests'
+                            ? 'bg-blue-50 text-blue-600 border-r-4 border-blue-500'
+                            : 'text-gray-500 hover:bg-gray-100'
                         }`}
                     >
                         <BellIcon className="w-6 h-6" />
@@ -119,18 +115,21 @@ function Sidebar() {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                         </span>
+                        <span className="sidebar-tooltip">Notifications</span>
                     </NavLink>
-                    }
-                
+                )}
 
                 <NavLink 
                     to="/settings"
                     onClick={() => handleItemClick('settings')}
-                    className={`p-3 rounded-lg transition-colors ${activeItem === 'settings' ? 
-                        'bg-blue-50 text-blue-600 border-r-4 border-blue-500' : 
-                        'text-gray-500 hover:bg-gray-100'}`}
+                    className={`group relative p-3 rounded-lg transition-colors ${
+                      activeItem === 'settings' 
+                        ? 'bg-blue-50 text-blue-600 border-r-4 border-blue-500' 
+                        : 'text-gray-500 hover:bg-gray-100'
+                    }`}
                 >
                     <Cog6ToothIcon className="w-6 h-6" />
+                    <span className="sidebar-tooltip">Paramètres</span>
                 </NavLink>
             </nav>
 
@@ -138,13 +137,15 @@ function Sidebar() {
             <div className="flex flex-col items-center space-y-4 pb-4">
                 <button 
                     onClick={handleLogout}
-                    className="p-3 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="group relative p-3 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
                 >
                     <ArrowLeftOnRectangleIcon className="w-6 h-6" />
+                    <span className="sidebar-tooltip">Déconnexion</span>
                 </button>
                 
-                <div className="w-8 h-8 rounded-full flex items-center justify-center cursor-pointer">
-                  <img src={profilePicture} alt="Profile" />
+                <div className="group relative w-8 h-8 rounded-full flex items-center justify-center cursor-pointer">
+                  <img src={profilePicture} alt="Profile" className="transition-transform hover:scale-110" />
+                  <span className="sidebar-tooltip">Profil</span>
                 </div>
             </div>
         </div>
