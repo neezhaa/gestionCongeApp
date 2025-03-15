@@ -1,38 +1,43 @@
-// src/pages/EmployeeDashboard.jsx
-import { useAuth } from "../context/AuthContext";
-import EmployeeLeaveBalance from "../components/EmployeeDashboard/EmployeeLeaveBalance";
-import EmployeeLeaveRequestsForm from "../components/EmployeeDashboard/EmployeeLeaveRequestsForm";
-import EmployeeLeaveRequestsList from "../components/EmployeeDashboard/EmployeeLeaveRequestsList";
-import { Navigate } from "react-router-dom";
+import { useAuth } from '../context/AuthContext';
+import { useLeaveContext } from '../context/LeaveContext';
+import LeaveStats from '../components/EmployeeDashboard/LeaveStats';
+import LeaveRequests from '../components/EmployeeDashboard/LeaveRequests';
+import LeaveForm from '../components/EmployeeDashboard/LeaveForm';
+import Notifications from '../components/EmployeeDashboard/Notifications';
+import { useState } from 'react';
 
-function EmployeeDashboard() {
+const Dashboard = () => {
   const { auth } = useAuth();
+  const { employees, leaveRequests, loading } = useLeaveContext();
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
-  if (!auth || auth.user.is_admin) {
-    return <Navigate to="/dashboard" />;
+  if (!auth) {
+    window.location.href = '/login';
+    return null;
   }
 
   return (
-    <div className="pl-[4rem] bg-[#f0f5f9] min-h-screen p-6">
-      <h1 className="text-3xl font-bold mb-6">Espace Employé</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Solde de congé */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <EmployeeLeaveBalance />
-        </div>
+    <div className="min-h-screen pl-[5.5rem] bg-gray-50 p-6">
+      <LeaveStats 
+        employee={employees.find(e => e.id === auth.user.id)} 
+        leaveRequests={leaveRequests}
+      />
 
-        {/* Formulaire de demande de congé */}
-        <div className="bg-white rounded-lg shadow-lg p-6 md:col-span-2 lg:col-span-1">
-          <EmployeeLeaveRequestsForm />
-        </div>
+      <LeaveRequests 
+        leaveRequests={leaveRequests.filter(r => r.employe_id === auth.user.id)}
+        onNewRequest={() => setIsFormOpen(true)}
+        loading={loading}
+      />
 
-        {/* Liste des demandes de congé */}
-        <div className="bg-white rounded-lg shadow-lg p-6 md:col-span-2">
-          <EmployeeLeaveRequestsList />
-        </div>
-      </div>
+      <Notifications />
+
+      <LeaveForm 
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        employeeId={auth.user.id}
+      />
     </div>
   );
-}
+};
 
-export default EmployeeDashboard;
+export default Dashboard;
