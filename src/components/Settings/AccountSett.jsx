@@ -34,7 +34,7 @@ function AccountSettings() {
     try {
       // Validate passwords
       if (passwords.new !== passwords.confirm) {
-        throw new Error("New passwords do not match");
+        throw new Error("Les nouveaux mots de passe ne correspondent pas");
       }
 
       // Send update request
@@ -52,14 +52,14 @@ function AccountSettings() {
         }
       );
 
-      toast.success("Password updated successfully");
+      toast.success("Mot de passe mis à jour avec succès");
       setPasswords({ current: "", new: "", confirm: "" });
 
       navigate('/dashboard')
 
     } catch (error) {
       setError(error.response?.data?.message || error.message);
-      toast.error("Update failed");
+      toast.error("Échec de la mise à jour");
     } finally {
       setSubmitting(false);
     }
@@ -68,9 +68,9 @@ function AccountSettings() {
   return (
     <div className="flex-1 pl-6">
       <div>
-        <h2 className="text-lg font-medium">Account Settings</h2>
+        <h2 className="text-lg font-medium">Paramètres du compte</h2>
         <p className="text-sm text-muted-foreground">
-          Update your password and language preferences
+          Mettez à jour votre mot de passe et vos préférences linguistiques
         </p>
       </div>
 
@@ -79,11 +79,11 @@ function AccountSettings() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Password Update Section */}
         <div className="space-y-4">
-          <h3 className="font-medium">Password</h3>
+          <h3 className="font-medium">Mot de passe</h3>
 
           {/* Current Password */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Current Password</label>
+            <label className="text-sm font-medium">Mot de passe actuel</label>
             <div className="relative">
               <input
                 type={showPassword.current ? "text" : "password"}
@@ -101,14 +101,14 @@ function AccountSettings() {
                 }
                 className="absolute right-3 top-2 text-sm text-muted-foreground"
               >
-                {showPassword.current ? "Hide" : "Show"}
+                {showPassword.current ? "Masquer" : "Afficher"}
               </button>
             </div>
           </div>
 
           {/* New Password */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">New Password</label>
+            <label className="text-sm font-medium">Nouveau mot de passe</label>
             <div className="relative">
               <input
                 type={showPassword.new ? "text" : "password"}
@@ -126,14 +126,14 @@ function AccountSettings() {
                 }
                 className="absolute right-3 top-2 text-sm text-muted-foreground"
               >
-                {showPassword.new ? "Hide" : "Show"}
+                {showPassword.new ? "Masquer" : "Afficher"}
               </button>
             </div>
           </div>
 
           {/* Confirm Password */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Confirm Password</label>
+            <label className="text-sm font-medium">Confirmer le mot de passe</label>
             <div className="relative">
               <input
                 type={showPassword.confirm ? "text" : "password"}
@@ -151,7 +151,7 @@ function AccountSettings() {
                 }
                 className="absolute right-3 top-2 text-sm text-muted-foreground"
               >
-                {showPassword.confirm ? "Hide" : "Show"}
+                {showPassword.confirm ? "Masquer" : "Afficher"}
               </button>
             </div>
           </div>
@@ -166,7 +166,7 @@ function AccountSettings() {
           className="submit-button"
           disabled={submitting}
         >
-          {submitting ? "Updating..." : "Update Settings"}
+          {submitting ? "Mise à jour en cours..." : "Mettre à jour les paramètres"}
         </button>
       </form>
     </div>

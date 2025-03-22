@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-const options = ["Users", "Notifications", "Calendar"];
+const options = ["Profile", "Notifications", "Calendrier"];
 
 function DisplaySett() {
   const [checkedItems, setCheckedItems] = useState({
@@ -20,9 +20,9 @@ function DisplaySett() {
   return (
     <div className="flex-1 pl-6">
       <div>
-        <h2 className="text-lg font-medium">Display</h2>
+        <h2 className="text-lg font-medium">Affichage</h2>
         <p className="text-sm text-muted-foreground">
-          Turn items on or off to control what&apos;s displayed in the app.
+          Activez ou désactivez les éléments pour contrôler leur affichage dans l&apos;application.
         </p>
       </div>
       <div className="bg-border h-[1px] w-full shrink-0 my-6"></div>
@@ -30,7 +30,7 @@ function DisplaySett() {
         <div className="space-y-2">
           <label className="text-base font-medium">Sidebar</label>
           <p className="text-[0.8rem] text-muted-foreground">
-            Select the items you want to display in the sidebar.
+            Sélectionnez les éléments que vous souhaitez afficher dans sidebar.
           </p>
 
           {options.map((option) => (
@@ -70,7 +70,7 @@ function DisplaySett() {
           ))}
         </div>
 
-        <Button>Update display</Button>
+        <Button>Mettre à jour l'affichage</Button>
       </form>
     </div>
   );

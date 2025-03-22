@@ -4,9 +4,9 @@ function Settings() {
   
   return (
     <div className="bg-white w-[94%] h-fit p-10 ml-[4.5rem] mr-auto my-2 shadow-xl rounded-xl">
-      <h1 className="text-2xl font-bold mb-2">Settings</h1>
+      <h1 className="text-2xl font-bold mb-2">Paramètres</h1>
       <p className="text-muted-foreground">
-        Manage your account settings and set e-mail preferences.
+        Gérez les paramètres de votre compte et configurez vos préférences e-mail.
       </p>
       <div className="h-[1px] w-full my-6 bg-border "></div>
       <div className="flex space-y-8">

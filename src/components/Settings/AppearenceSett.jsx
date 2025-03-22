@@ -59,10 +59,9 @@ function AppearanceSettings() {
   return (
     <div className="flex-1 pl-6">
       <div>
-        <h2 className="text-lg font-medium">Appearance</h2>
+        <h2 className="text-lg font-medium">Apparence</h2>
         <p className="text-sm text-muted-foreground">
-          Customize the appearance of the app. Automatically switch between day
-          and night themes.
+          Personnalisez l'apparence de l'application. Basculez automatiquement entre les thèmes.
         </p>
       </div>
       <div className="bg-border h-[1px] w-full shrink-0 my-6" />
@@ -72,7 +71,7 @@ function AppearanceSettings() {
         <div className="flex flex-col gap-4">
           {/* Font Selector */}
           <div className="space-y-2 flex-1" ref={fontRef}>
-            <label className="text-base font-medium">Font</label>
+            <label className="text-base font-medium">Police</label>
             <div className="relative">
               <button
                 type="button"
@@ -102,13 +101,13 @@ function AppearanceSettings() {
               )}
             </div>
             <p className="text-[0.8rem] text-muted-foreground">
-              Set the font for the dashboard.
+              Définissez la police pour le tableau de bord.
             </p>
           </div>
 
           {/* Language Selector */}
           <div className="space-y-2 flex-1" ref={languageRef}>
-            <label className="text-base font-medium">Language</label>
+            <label className="text-base font-medium">Langue</label>
             <div className="relative">
               <button
                 type="button"
@@ -138,16 +137,16 @@ function AppearanceSettings() {
               )}
             </div>
             <p className="text-[0.8rem] text-muted-foreground">
-              Set the language for the dashboard.
+              Définissez la langue pour le tableau de bord.
             </p>
           </div>
         </div>
 
         {/* Theme Selection */}
         <div className="space-y-2">
-          <label className="text-base font-medium">Theme</label>
+          <label className="text-base font-medium">Thème</label>
           <p className="text-[0.8rem] text-muted-foreground">
-            Select the theme for the dashboard.
+            Selectionnez le thème pour le tableau de bord.
           </p>
           <div className="grid max-w-md grid-cols-2 gap-8 pt-2 outline-none">
             {/* Light Option */}
@@ -206,7 +205,7 @@ function AppearanceSettings() {
           </div>
         </div>
 
-        <Button>Update Preferences</Button>
+        <Button>Mettre à jour les préférences</Button>
       </form>
     </div>
   );

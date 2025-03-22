@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { Button } from "@/components/ui/button"
 
 
@@ -12,25 +11,17 @@ function NotificationSett() {
     setSelectedOption(event.target.value);
   };
   
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post("/api/notifications", { type: selectedOption });
-      console.log("Response:", response.data);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    }
-  };
   return (
     <div className="flex-1 pl-6">
           <div>
               <h2 className="text-lg font-medium">Notifications</h2>
-              <p className="text-sm text-muted-foreground">Configure how you receive notifications.</p>
+              <p className="text-sm text-muted-foreground">Configurez comment vous recevez les notifications.
+              </p>
           </div>
           <div className="bg-border h-[1px] w-full shrink-0 my-6"></div>
-          <form onSubmit={handleSubmit} className="w-2/3 space-y-6">
+          <form  className="w-2/3 space-y-6">
             <div className="space-y-3">
-              <label className="block font-medium text-sm">Notify me about...</label>
+              <label className="block font-medium text-sm">M&apos;avertir à propos de...</label>
               <div className="flex flex-col space-y-1">
                 <label className="flex items-center space-x-3">
                   <input
@@ -43,7 +34,7 @@ function NotificationSett() {
                     checked={selectedOption === "all"}
                     onChange={handleChange}
                   />
-                  <span className="font-normal">All new messages</span>
+                  <span className="font-normal">Tous les nouveaux messages</span>
                 </label>
                 <label className="flex items-center space-x-3">
                   <input
@@ -56,7 +47,7 @@ function NotificationSett() {
                     checked={selectedOption === "mentions"}
                     onChange={handleChange}
                   />
-                  <span className="font-normal">Direct messages and mentions</span>
+                  <span className="font-normal">Messages directs et mentions</span>
                 </label>
                 <label className="flex items-center space-x-3">
                   <input
@@ -69,11 +60,11 @@ function NotificationSett() {
                     checked={selectedOption === "none"}
                     onChange={handleChange}
                   />
-                  <span className="font-normal">Nothing</span>
+                  <span className="font-normal">Aucune notification</span>
                 </label>
               </div>
             </div>
-            <Button className="">Update notifications</Button>
+            <Button className="">Mettre à jour les notifications</Button>
         </form>
   </div>
   )
