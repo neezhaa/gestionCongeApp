@@ -69,13 +69,15 @@ export const LeaveProvider = ({ children }) => {
       setState(prev => ({ ...prev, exitingIds: [...prev.exitingIds, requestId] }));
       
       const request = state.leaveRequests.find(r => r.id === requestId);
+      const employee = state.employees.find(emp => emp.id === request.employe_id);
+
       if (action === 'approve') {
-        await api.put(`employes/${request.employe_id}`, {
-          solde_conge: request.employe.solde_conge - request.nbr_jours_demandes
+        await api.put(`/employes/${request.employe_id}`, {
+          solde_conge: employee.solde_conge - request.nbr_jours_demandes
         });
       }
 
-      await api.post('notifications', {
+      await api.post('/notifications', {
         employe_id: request.employe_id,
         type: 'reponse_demande',
         message: `Demande ${action === 'approve' ? 'acceptée' : 'rejetée'}`,
@@ -97,6 +99,7 @@ export const LeaveProvider = ({ children }) => {
       }));
     }
   };
+  
 
   return (
     <LeaveContext.Provider value={{ 
