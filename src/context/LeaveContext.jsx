@@ -84,6 +84,13 @@ export const LeaveProvider = ({ children }) => {
         demande_conge_id: requestId
       });
 
+      await api.delete(`/conges/${requestId}`, {
+        employe_id: request.employe_id,
+        type: 'reponse_demande',
+        message: `Demande ${action === 'approve' ? 'acceptée' : 'rejetée'}`,
+        demande_conge_id: requestId
+      });
+
       setState(prev => ({
         ...prev,
         leaveRequests: prev.leaveRequests.filter(r => r.id !== requestId),
@@ -112,16 +119,4 @@ export const LeaveProvider = ({ children }) => {
   );
 };
 
-<<<<<<< HEAD
-export const useLeaveContext = () => {
-  const context = useContext(LeaveContext);
-  if (!context) {
-    throw new Error('useLeaveContext must be used within a LeaveProvider');
-  }
-  return context;
-};
-
-
-=======
 export const useLeaveContext = () => useContext(LeaveContext);
->>>>>>> 67cd6c12c99e5d98102b8fdb900934e1d477fc21

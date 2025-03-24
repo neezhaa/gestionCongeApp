@@ -1,21 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLeaveContext } from "../context/LeaveContext";
 import { 
   ChevronUpIcon, 
   ChevronDownIcon, 
   EllipsisVerticalIcon,
-  PencilIcon,
   TrashIcon,
-  UserIcon,
-  EnvelopeIcon,
-  BriefcaseIcon,
-  CalendarDaysIcon,
+  PencilIcon,
   XMarkIcon
 } from "@heroicons/react/24/outline";
 import { Menu, Transition, Dialog } from '@headlessui/react';
+import AddEmployeeModal from '../components/AdminDashboard/AddEmployeeModal'; // Import the external AddEmployeeModal component
 
 const EmployeesTable = () => {
-  const { employees, handleDeleteEmployee, handleEditEmployee } = useLeaveContext();
+  const { employees, handleDeleteEmployee, handleEditEmployee, handleAddEmployee } = useLeaveContext();
   const [filterQuery, setFilterQuery] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,12 +21,14 @@ const EmployeesTable = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editedEmployee, setEditedEmployee] = useState(null);
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   // Filtering logic
   const filteredEmployees = employees.filter(employee =>
     Object.values(employee).some(value =>
       String(value).toLowerCase().includes(filterQuery.toLowerCase())
-  ));
+    )
+  );
 
   // Sorting logic
   const sortedEmployees = [...filteredEmployees].sort((a, b) => {
@@ -129,63 +128,6 @@ const EmployeesTable = () => {
                 <XMarkIcon className="w-6 h-6 text-gray-500" />
               </button>
             </div>
-
-            <form onSubmit={(e) => { e.preventDefault(); onSubmit(formData); }}>
-              <div className="space-y-4">
-                <InputGroup
-                  icon={<UserIcon className="w-5 h-5 text-gray-400" />}
-                  label="Prénom"
-                  value={formData.prenom || ''}
-                  onChange={(v) => setFormData({ ...formData, prenom: v })}
-                />
-
-                <InputGroup
-                  icon={<UserIcon className="w-5 h-5 text-gray-400" />}
-                  label="Nom"
-                  value={formData.nom || ''}
-                  onChange={(v) => setFormData({ ...formData, nom: v })}
-                />
-
-                <InputGroup
-                  icon={<EnvelopeIcon className="w-5 h-5 text-gray-400" />}
-                  label="Email"
-                  type="email"
-                  value={formData.email || ''}
-                  onChange={(v) => setFormData({ ...formData, email: v })}
-                />
-
-                <InputGroup
-                  icon={<BriefcaseIcon className="w-5 h-5 text-gray-400" />}
-                  label="Poste"
-                  value={formData.poste || ''}
-                  onChange={(v) => setFormData({ ...formData, poste: v })}
-                />
-
-                <InputGroup
-                  icon={<CalendarDaysIcon className="w-5 h-5 text-gray-400" />}
-                  label="Solde de congé"
-                  type="number"
-                  value={formData.solde_conge || 0}
-                  onChange={(v) => setFormData({ ...formData, solde_conge: v })}
-                />
-
-                <div className="flex justify-end gap-4 mt-6">
-                  <button
-                    type="button"
-                    onClick={onClose}
-                    className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md"
-                  >
-                    Annuler
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md"
-                  >
-                    Enregistrer
-                  </button>
-                </div>
-              </div>
-            </form>
           </Dialog.Panel>
         </div>
       </Dialog>
@@ -204,6 +146,12 @@ const EmployeesTable = () => {
             value={filterQuery}
             onChange={(e) => setFilterQuery(e.target.value)}
           />
+          <button
+            onClick={() => setIsAddModalOpen(true)}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          >
+            Ajouter un employé
+          </button>
         </div>
       </div>
 
@@ -339,6 +287,18 @@ const EmployeesTable = () => {
           if (success) {
             setIsEditModalOpen(false);
             setEditedEmployee(null);
+          }
+        }}
+      />
+
+      {/* Use the external AddEmployeeModal component */}
+      <AddEmployeeModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onSubmit={async (formData) => {
+          const success = await handleAddEmployee(formData);
+          if (success) {
+            setIsAddModalOpen(false);
           }
         }}
       />
