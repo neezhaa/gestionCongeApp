@@ -84,13 +84,6 @@ export const LeaveProvider = ({ children }) => {
         demande_conge_id: requestId
       });
 
-      await api.delete(`/conges/${requestId}`, {
-        employe_id: request.employe_id,
-        type: 'reponse_demande',
-        message: `Demande ${action === 'approve' ? 'acceptée' : 'rejetée'}`,
-        demande_conge_id: requestId
-      });
-
       setState(prev => ({
         ...prev,
         leaveRequests: prev.leaveRequests.filter(r => r.id !== requestId),
