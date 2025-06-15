@@ -22,7 +22,7 @@ const Dashboard = () => {
         employee={employees.find(e => e.id === auth.user.id)} 
         leaveRequests={leaveRequests}
       />
-
+      
       <LeaveRequests 
         leaveRequests={leaveRequests.filter(r => r.employe_id === auth.user.id)}
         onNewRequest={() => setIsFormOpen(true)}
