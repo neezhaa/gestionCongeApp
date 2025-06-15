@@ -1,0 +1,119 @@
+{
+    "navbar": {
+        "logo": "Congease",
+        "how_it_works": "Comment ça marche",
+        "features": "Fonctionnalités",
+        "resources": "Ressources",
+        "pricing": "Nos offres",
+        "faq": "FAQ",
+        "blog": "Blog",
+        "login": "Connexion",
+        "signup": "S'inscrire"
+    },
+    "hero": {
+        "title": "Optimisez la gestion de vos congés efficacement",
+        "subtitle": "Avec Congease, facilitez les demandes de congés sans effort. Notre plateforme permet aux employés de soumettre leurs demandes de congés avec simplicité, tandis que les ressources humaines peuvent examiner et gérer les approbations en toute facilité.",
+        "cta": "Inscrivez-vous maintenant",
+        "image_alt": "Illustration d'employés heureux",
+        "testimonial": {
+            "text": "Congease a transformé notre processus de gestion des congés, le rendant efficace et convivial pour tous les utilisateurs.",
+            "name": "Ahmed AZIZ",
+            "position": "(Directrice RH chez Innovations Corp)",
+            "user_alt": "Utilisateur satisfait"
+        }
+    },
+    "about": {
+        "title": "Révolutionnez la Gestion de Vos Congés",
+        "description": "GestionCongeApp simplifie la gestion des congés, permettant aux employés et aux équipes RH de collaborer facilement.",
+        "features": [
+            "Interface conviviale pour des demandes de congés sans tracas",
+            "Processus d'approbation fluide pour des réponses rapides",
+            "Gestion complète des rôles pour un contrôle d'accès sécurisé",
+            "Protection robuste des données pour sécuriser les informations sensibles des employés"
+        ],
+        "cta": "Démarrez votre Essai Gratuit !",
+        "testimonial": {
+            "quote": "Congease a simplifié notre processus de gestion des congés, le rendant très facile pour les employés et les RH !",
+            "name": "Imane Karem",
+            "position": "(Responsable des Opérations chez Tech Innovations)"
+        }
+    },
+    "features": {
+        "title": "Révolutionnez la gestion des congés avec Congease",
+        "subtitle": "Découvrez une simplicité sans égale dans la gestion des demandes de congés des employés. Avec Congease, donnez à votre personnel le pouvoir de soumettre des demandes en quelques clics, tandis que les RH supervisent facilement les approbations tout en maintenant le contrôle sur les autorisations.",
+        "items": [
+        {
+            "title": "Soumission de demande sans effort",
+            "description": "Permettez à votre équipe de soumettre facilement des demandes de congés grâce à une interface simplifiée, conçue pour la simplicité et l'efficacité."
+        },
+        {
+            "title": "Processus d'approbation transparent",
+            "description": "Les RH peuvent gérer les soumissions avec clarté, garantissant des approbations rapides et maintenant un aperçu bien organisé des demandes en attente."
+        },
+        {
+            "title": "Mesures de sécurité plus robustes",
+            "description": "Bénéficiez de mesures de sécurité robustes qui protègent les données sensibles, vous offrant confiance en un système de gestion des congés conforme et sécurisé."
+        }
+        ]
+    },
+    "pricing": {
+        "title": "Choisissez le plan idéal pour vos besoins en gestion des congés",
+        "subtitle": "Rejoignez la communauté croissante d'organisations qui améliorent leurs processus de congé avec Congease.",
+        "plans": {
+        "basic": {
+            "title": "Basique",
+            "description": "Commencez avec un essai gratuit de 14 jours sans frais. Découvrez la simplicité de la gestion des demandes de congés.",
+            "price": "$0",
+            "tag": "Essai gratuit de 14 jours",
+            "button": "Commencez ce plan",
+            "features": [
+            "Jusqu'à 5 000 utilisateurs",
+            "Demandes de congés illimitées",
+            "Analytique de base",
+            "Gestion des rôles utilisateur"
+            ]
+        },
+        "pro": {
+            "title": "Professionnel",
+            "badge": "Le plus populaire",
+            "description": "Déverrouillez tout le potentiel de Congease après votre essai gratuit. Découvrez une gestion fluide sans limitations.",
+            "price": "$20",
+            "tag": "Abonnement mensuel",
+            "button": "Choisir ce plan",
+            "features": [
+            "Jusqu'à 15 000 utilisateurs",
+            "Analytique avancée",
+            "Gestion personnalisée des rôles"
+            ]
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Commencez dès aujourd'hui avec un essai sans risque. Une gestion complète des congés pour votre organisation.",
+            "price": "$99",
+            "tag": "Essai gratuit de 14 jours",
+            "button": "Sélectionnez ce plan",
+            "features": [
+            "Utilisateurs illimités",
+            "Gestion complète des rôles",
+            "Support prioritaire"
+            ]
+        }
+        }
+    },
+    "cta": {
+        "title": "Optimisez la gestion des congés avec Congease",
+        "description": "Simplifiez la soumission et le traitement des demandes de congés avec notre application intuitive. Profitez d'une expérience utilisateur fluide où chaque employé peut facilement gérer ses demandes pendant que les responsables RH peuvent approuver les congés en un clic. Prêt à révolutionner la manière dont vous gérez les congés au sein de votre entreprise ?",
+        "button": "Démarrez votre essai gratuit dès aujourd'hui"
+    },
+    "footer": {
+        "brand": "Congease",
+        "links": {
+            "home": "Accueil",
+            "how_it_works": "Comment ça marche",
+            "features": "Fonctionnalités",
+            "faq": "FAQ",
+            "contact": "Contactez-nous"
+        },
+        "copyright": "© 2025 Congease. Tous droits réservés"
+    }
+}

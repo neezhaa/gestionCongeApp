@@ -1,0 +1,119 @@
+{
+    "navbar": {
+        "logo": "Congease",
+        "how_it_works": "How it works",
+        "features": "Features",
+        "resources": "Resources",
+        "pricing": "Pricing",
+        "faq": "FAQ",
+        "blog": "Blog",
+        "login": "Login",
+        "signup": "Sign Up"
+    },
+    "hero": {
+        "title": "Optimize your leave management efficiently",
+        "subtitle": "With Congease, simplify leave requests effortlessly. Our platform enables employees to submit leave requests with ease, while HR can review and manage approvals with complete simplicity.",
+        "cta": "Sign up now",
+        "image_alt": "Happy employees illustration",
+        "testimonial": {
+            "text": "Congease transformed our leave management process, making it efficient and user-friendly for all users.",
+            "name": "Ahmed AZIZ",
+            "position": "(HR Director at Innovations Corp)",
+            "user_alt": "Satisfied user"
+        }
+    },
+    "about": {
+        "title": "Revolutionize Your Leave Management",
+        "description": "GestionCongeApp simplifies leave management, enabling employees and HR teams to collaborate easily.",
+        "features": [
+            "User-friendly interface for hassle-free leave requests",
+            "Smooth approval process for quick responses",
+            "Comprehensive role management for secure access control",
+            "Robust data protection to secure sensitive employee information"
+        ],
+        "cta": "Start Your Free Trial!",
+        "testimonial": {
+            "quote": "Congease has simplified our leave management process, making it very easy for employees and HR!",
+            "name": "Imane Karem",
+            "position": "(Operations Manager at Tech Innovations)"
+        }
+    },
+    "features": {
+        "title": "Revolutionize leave management with Congease",
+        "subtitle": "Discover unparalleled simplicity in managing employee leave requests. With Congease, empower your staff to submit requests in just a few clicks while HR easily oversees approvals while maintaining control over permissions.",
+        "items": [
+        {
+            "title": "Effortless request submission",
+            "description": "Allow your team to easily submit leave requests through a simplified interface designed for simplicity and efficiency."
+        },
+        {
+            "title": "Transparent approval process",
+            "description": "HR can manage submissions with clarity, ensuring quick approvals while maintaining a well-organized overview of pending requests."
+        },
+        {
+            "title": "Enhanced security measures",
+            "description": "Benefit from robust security measures that protect sensitive data, giving you confidence in a compliant and secure leave management system."
+        }
+        ]
+    },
+    "pricing": {
+        "title": "Choose the ideal plan for your leave management needs",
+        "subtitle": "Join the growing community of organizations improving their leave process with Congease.",
+        "plans": {
+        "basic": {
+            "title": "Basic",
+            "description": "Start your journey with a 14-day free trial at no cost. Discover how simple leave request management can be.",
+            "price": "$0",
+            "tag": "14-Day Free Trial",
+            "button": "Start this plan",
+            "features": [
+            "Up to 5,000 users",
+            "Unlimited leave requests",
+            "Basic analytics",
+            "User role management"
+            ]
+        },
+        "pro": {
+            "title": "Professional",
+            "badge": "Most Popular",
+            "description": "Unlock the full potential of Congease after your free trial. Enjoy smooth management without limitations.",
+            "price": "$20",
+            "tag": "Monthly Subscription",
+            "button": "Choose this plan",
+            "features": [
+            "Up to 15,000 users",
+            "Advanced analytics",
+            "Custom role management"
+            ]
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Start today with a risk-free trial. Complete leave management for your entire organization.",
+            "price": "$99",
+            "tag": "14-Day Free Trial",
+            "button": "Select this plan",
+            "features": [
+            "Unlimited users",
+            "Full role management",
+            "Priority support"
+            ]
+        }
+        }
+    },
+    "cta": {
+        "title": "Optimize leave management with Congease",
+        "description": "Simplify leave submission and processing with our intuitive application. Enjoy a smooth user experience where every employee can easily manage their requests while HR managers can approve leave with one click. Ready to revolutionize how you manage leave in your company?",
+        "button": "Start your free trial today"
+    },
+    "footer": {
+        "brand": "Congease",
+        "links": {
+            "home": "Home",
+            "how_it_works": "How It Works",
+            "features": "Features",
+            "faq": "FAQ",
+            "contact": "Contact Us"
+        },
+        "copyright": "© 2025 Congease. All Rights Reserved"
+    }
+}
