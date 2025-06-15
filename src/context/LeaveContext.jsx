@@ -30,7 +30,7 @@ export const LeaveProvider = ({ children }) => {
           loading: false
         });
       } catch (error) {
-        toast.error('Erreur de chargement des données');
+        // toast.error('Erreur de chargement des données');
         setState(prev => ({ ...prev, loading: false }));
       }
     };
