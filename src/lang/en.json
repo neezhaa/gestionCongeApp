@@ -115,5 +115,17 @@
             "contact": "Contact Us"
         },
         "copyright": "© 2025 Congease. All Rights Reserved"
+    },
+    "login": {
+        "title": "Login",
+        "email": "Email",
+        "password": "Password",
+        "remember": "Remember me",
+        "forgot_password": "Forgot password?",
+        "submit": "Login",
+        "no_account": "Don't have an account?",
+        "signup": "Sign up",
+        "copyright": "Copyright ©2025 CongeEase",
+        "home_page": "Home Page"
     }
 }

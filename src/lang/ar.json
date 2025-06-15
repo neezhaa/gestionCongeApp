@@ -116,5 +116,17 @@
             "contact": "اتصل بنا"
         },
         "copyright": "© 2025 Congease. جميع الحقوق محفوظة"
+    },
+    "login": {
+        "title": "تسجيل الدخول",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "remember": "تذكرني",
+        "forgot_password": "نسيت كلمة المرور؟",
+        "submit": "تسجيل الدخول",
+        "no_account": "ليس لديك حساب؟",
+        "signup": "إنشاء حساب",
+        "copyright": "حقوق النشر ©2025 CongeEase",
+        "home_page": "الصفحة الرئيسية"
     }
 }
