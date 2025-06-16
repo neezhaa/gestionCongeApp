@@ -9,7 +9,7 @@ function Footer() {
         { id: "how_it_works", path: "#about", text: t("footer.links.how_it_works") },
         { id: "features", path: "#features", text: t("footer.links.features") },
         { id: "faq", path: "/faq", text: t("footer.links.faq") },
-        { id: "contact", path: "/contact", text: t("footer.links.contact") },
+        { id: "contact", path: "#contact", text: t("footer.links.contact") },
     ];
 
     return (
