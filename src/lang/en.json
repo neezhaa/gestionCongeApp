@@ -197,5 +197,67 @@
             "Calendar": "Calendar"
         },
         "updateButton": "Update display settings"
+    },
+    "stats": {
+        "totalEmployees": "Total Employees",
+        "pendingRequests": "Pending Requests",
+        "approvedRequests": "Approved Requests",
+        "rejectedRequests": "Rejected Requests"
+    },
+    "leaveChart": {
+        "title": "Monthly Distribution",
+        "status": {
+            "pending": "Pending",
+            "approved": "Approved",
+            "rejected": "Rejected"
+        }
+    },
+    "employeeModal": {
+        "title": "Add Employee",
+        "fields": {
+            "lastName": "Last Name",
+            "firstName": "First Name",
+            "email": "Email",
+            "password": "Password",
+            "position": "Position",
+            "leaveBalance": "Leave Balance",
+            "hireDate": "Hire Date",
+            "admin": "Admin"
+        },
+        "adminOptions": {
+            "yes": "Yes",
+            "no": "No"
+        },
+        "buttons": {
+            "cancel": "Cancel",
+            "add": "Add"
+        }
+    },
+    "leaveRequestsTable": {
+        "title": "Pending Approval",
+        "viewAll": "View all requests",
+        "noRequests": "No pending requests",
+        "error": "Error: Data not available",
+        "employee": {
+            "position": "Position"
+        },
+        "leave": {
+            "days": "days",
+            "type": "Leave type"
+        },
+        "actions": {
+            "approve": "Approve",
+            "reject": "Reject"
+        }
+    },
+    "notifications": {
+        "title": "My Notifications",
+        "empty": "No notifications at this time.",
+        "received": "Received on:",
+        "status": {
+            "approved": "approved",
+            "rejected": "rejected"
+        }
     }
+    
 }

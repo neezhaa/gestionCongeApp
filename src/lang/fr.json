@@ -197,5 +197,66 @@
             "Calendar": "Calendrier"
         },
         "updateButton": "Mettre à jour l'affichage"
+    },
+    "stats": {
+        "totalEmployees": "Total des Employés",
+        "pendingRequests": "Demandes en Attente",
+        "approvedRequests": "Demandes Approuvées",
+        "rejectedRequests": "Demandes Rejetées"
+    },
+    "leaveChart": {
+        "title": "Répartition mensuelle",
+        "status": {
+            "pending": "En attente",
+            "approved": "Approuvées", 
+            "rejected": "Rejetées"
+        }
+    },
+    "employeeModal": {
+        "title": "Ajouter un employé",
+        "fields": {
+            "lastName": "Nom",
+            "firstName": "Prénom",
+            "email": "Email",
+            "password": "Mot de passe",
+            "position": "Poste",
+            "leaveBalance": "Solde de congé",
+            "hireDate": "Date d'embauche",
+            "admin": "Admin"
+        },
+        "adminOptions": {
+            "yes": "Oui",
+            "no": "Non"
+        },
+        "buttons": {
+            "cancel": "Annuler",
+            "add": "Ajouter"
+        }
+    },
+    "leaveRequestsTable": {
+        "title": "Pending Approval",
+        "viewAll": "View all requests",
+        "noRequests": "No pending requests",
+        "error": "Error: Data not available",
+        "employee": {
+            "position": "Position"
+        },
+        "leave": {
+            "days": "days",
+            "type": "Leave type"
+        },
+        "actions": {
+            "approve": "Approve",
+            "reject": "Reject"
+        }
+    },
+    "notifications": {
+    "title": "Mes Notifications",
+    "empty": "Aucune notification pour le moment.",
+    "received": "Reçu le :",
+    "status": {
+        "approved": "acceptée",
+        "rejected": "rejetée"
+    }
     }
 }

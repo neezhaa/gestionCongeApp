@@ -198,6 +198,68 @@
             "Calendar": "التقويم"
         },
         "updateButton": "تحديث إعدادات العرض"
+    },
+    "stats": {
+        "totalEmployees": "إجمالي الموظفين",
+        "pendingRequests": "طلبات معلقة",
+        "approvedRequests": "طلبات معتمدة",
+        "rejectedRequests": "طلبات مرفوضة"
+    },
+    "leaveChart": {
+        "title": "التوزيع الشهري",
+        "status": {
+            "pending": "معلقة",
+            "approved": "معتمدة",
+            "rejected": "مرفوضة"
+        }
+    },
+    "employeeModal": {
+        "title": "إضافة موظف",
+        "fields": {
+            "lastName": "الاسم العائلي",
+            "firstName": "الاسم الشخصي",
+            "email": "البريد الإلكتروني",
+            "password": "كلمة المرور",
+            "position": "المنصب",
+            "leaveBalance": "رصيد الإجازات",
+            "hireDate": "تاريخ التوظيف",
+            "admin": "مدير"
+        },
+        "adminOptions": {
+            "yes": "نعم",
+            "no": "لا"
+        },
+        "buttons": {
+            "cancel": "إلغاء",
+            "add": "إضافة"
+        }
+    },
+    "leaveRequestsTable": {
+        "title": "في انتظار الموافقة",
+        "viewAll": "عرض جميع الطلبات",
+        "noRequests": "لا توجد طلبات معلقة",
+        "error": "خطأ: البيانات غير متوفرة",
+        "employee": {
+            "position": "المنصب"
+        },
+        "leave": {
+            "days": "أيام",
+            "type": "نوع الإجازة"
+        },
+        "actions": {
+            "approve": "موافقة",
+            "reject": "رفض"
+        }
+    },
+    "notifications": {
+        "title": "إشعاراتي",
+        "empty": "لا توجد إشعارات في الوقت الحالي.",
+        "received": "تم الاستلام في:",
+        "status": {
+            "approved": "مقبولة",
+            "rejected": "مرفوضة"
+        }
     }
+    
 
 }

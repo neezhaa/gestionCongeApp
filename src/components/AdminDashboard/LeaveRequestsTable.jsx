@@ -7,8 +7,10 @@ import {
 } from "@heroicons/react/24/outline";
 import { useLeaveContext } from '../../context/LeaveContext';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const LeaveRequestsTable = ({ maxItems }) => {
+  const { t, i18n } = useTranslation();
   const { 
     leaveRequests, 
     handleAction, 
@@ -17,18 +19,20 @@ const LeaveRequestsTable = ({ maxItems }) => {
     employees 
   } = useLeaveContext();
 
-  // Vérifiez que leaveRequests est un tableau
+  // Check if leaveRequests is an array
   if (!Array.isArray(leaveRequests)) {
-    console.error('leaveRequests doit être un tableau', leaveRequests);
-    return <div className="bg-white h-[316px] rounded-xl shadow-lg m-[2px_0px_0px_6px] p-6 text-red-500">
-      Erreur : Les données ne sont pas disponibles.
-    </div>;
+    console.error('leaveRequests must be an array', leaveRequests);
+    return (
+      <div className="bg-white h-[316px] rounded-xl shadow-lg m-[2px_0px_0px_6px] p-6 text-red-500">
+        {t('leaveRequestsTable.error')}
+      </div>
+    );
   }
 
-  // Filtrer les demandes en attente
+  // Filter pending requests
   const pendingRequests = leaveRequests.filter(request => request.statut === 'en attente');
 
-  // Tri et limitation stricte
+  // Sort and limit
   const sortedRequests = [...pendingRequests]
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
     .slice(0, maxItems || pendingRequests.length);
@@ -53,14 +57,14 @@ const LeaveRequestsTable = ({ maxItems }) => {
   return (
     <div className="bg-white h-[316px] rounded-xl shadow-lg m-[2px_0px_0px_6px] relative">
       <div className="flex justify-between items-center px-5 py-2">
-        <p className="font-semibold text-xl">En attente de validation</p>
+        <p className="font-semibold text-xl">{t('leaveRequestsTable.title')}</p>
         {shouldShowLink && (
           <Link 
             to="/all-requests" 
             className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
           >
-            Voir toutes les demandes
-            <ArrowRightIcon className="ml-1 w-4 h-4" />
+            {t('leaveRequestsTable.viewAll')}
+            <ArrowRightIcon className={`${i18n.dir() === 'rtl' ? 'mr-1' : 'ml-1'} w-4 h-4`} />
           </Link>
         )}
       </div>
@@ -86,7 +90,9 @@ const LeaveRequestsTable = ({ maxItems }) => {
                 />
                 <div className="ml-2">
                   <p className="font-medium">{employee?.nom} {employee?.prenom}</p>
-                  <p className="font-normal text-xs text-[#00000078] -mt-1">{employee?.poste}</p>
+                  <p className="font-normal text-xs text-[#00000078] -mt-1">
+                    {employee?.poste || t('leaveRequestsTable.employee.position')}
+                  </p>
                 </div>
               </div>
               
@@ -96,7 +102,7 @@ const LeaveRequestsTable = ({ maxItems }) => {
                 <div>
                   <p className="font-medium text-sm capitalize">{request.motif_conge}</p>
                   <p className="text-xs text-[#00000094] -mt-1 font-medium">
-                    {request.nbr_jours_demandes} jours
+                    {request.nbr_jours_demandes} {t('leaveRequestsTable.leave.days')}
                   </p>
                 </div>
               </div>
@@ -127,12 +133,14 @@ const LeaveRequestsTable = ({ maxItems }) => {
                 <button 
                   onClick={() => handleAction(request.id, 'reject')}
                   className="flex justify-center items-center border-2 border-[#FF2626] p-2 rounded-full w-10 h-10 hover:scale-110 transition-transform cursor-pointer hover:shadow-md"
+                  aria-label={t('leaveRequestsTable.actions.reject')}
                 >
                   <XMarkIcon className="w-7 h-7 stroke-[#FF2626] stroke-[2px]" />
                 </button>
                 <button 
                   onClick={() => handleAction(request.id, 'approve')}
                   className="border-2 border-[#4CFF67] p-2 rounded-full w-10 h-10 hover:scale-110 transition-transform cursor-pointer hover:shadow-md flex items-center justify-center"
+                  aria-label={t('leaveRequestsTable.actions.approve')}
                 >
                   <CheckIcon className="w-7 h-6 stroke-[#4CFF67] stroke-[2px]" />
                 </button>
@@ -142,7 +150,7 @@ const LeaveRequestsTable = ({ maxItems }) => {
         })}
         {sortedRequests.length === 0 && !loading && (
           <div className="pt-20 text-center text-gray-500">
-            Aucune demande en attente
+            {t('leaveRequestsTable.noRequests')}
           </div>
         )}
       </div>
