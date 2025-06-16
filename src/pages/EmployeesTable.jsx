@@ -9,7 +9,7 @@ import {
   XMarkIcon
 } from "@heroicons/react/24/outline";
 import { Menu, Transition, Dialog } from '@headlessui/react';
-import AddEmployeeModal from '../components/AdminDashboard/AddEmployeeModal'; // Import the external AddEmployeeModal component
+import AddEmployeeModal from '../components/AdminDashboard/AddEmployeeModal'; 
 
 const EmployeesTable = () => {
   const { employees, handleDeleteEmployee, handleEditEmployee, handleAddEmployee } = useLeaveContext();

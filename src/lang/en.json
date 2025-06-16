@@ -1,0 +1,263 @@
+{
+    "navbar": {
+        "logo": "Congease",
+        "how_it_works": "How it works",
+        "features": "Features",
+        "resources": "Resources",
+        "pricing": "Pricing",
+        "faq": "FAQ",
+        "blog": "Blog",
+        "login": "Login",
+        "signup": "Sign Up"
+    },
+    "hero": {
+        "title": "Optimize your leave management efficiently",
+        "subtitle": "With Congease, simplify leave requests effortlessly. Our platform enables employees to submit leave requests with ease, while HR can review and manage approvals with complete simplicity.",
+        "cta": "Sign up now",
+        "image_alt": "Happy employees illustration",
+        "testimonial": {
+            "text": "Congease transformed our leave management process, making it efficient and user-friendly for all users.",
+            "name": "Ahmed AZIZ",
+            "position": "(HR Director at Innovations Corp)",
+            "user_alt": "Satisfied user"
+        }
+    },
+    "about": {
+        "title": "Revolutionize Your Leave Management",
+        "description": "GestionCongeApp simplifies leave management, enabling employees and HR teams to collaborate easily.",
+        "features": [
+            "User-friendly interface for hassle-free leave requests",
+            "Smooth approval process for quick responses",
+            "Comprehensive role management for secure access control",
+            "Robust data protection to secure sensitive employee information"
+        ],
+        "cta": "Start Your Free Trial!",
+        "testimonial": {
+            "quote": "Congease has simplified our leave management process, making it very easy for employees and HR!",
+            "name": "Imane Karem",
+            "position": "(Operations Manager at Tech Innovations)"
+        }
+    },
+    "features": {
+        "title": "Revolutionize leave management with Congease",
+        "subtitle": "Discover unparalleled simplicity in managing employee leave requests. With Congease, empower your staff to submit requests in just a few clicks while HR easily oversees approvals while maintaining control over permissions.",
+        "items": [
+        {
+            "title": "Effortless request submission",
+            "description": "Allow your team to easily submit leave requests through a simplified interface designed for simplicity and efficiency."
+        },
+        {
+            "title": "Transparent approval process",
+            "description": "HR can manage submissions with clarity, ensuring quick approvals while maintaining a well-organized overview of pending requests."
+        },
+        {
+            "title": "Enhanced security measures",
+            "description": "Benefit from robust security measures that protect sensitive data, giving you confidence in a compliant and secure leave management system."
+        }
+        ]
+    },
+    "pricing": {
+        "title": "Choose the ideal plan for your leave management needs",
+        "subtitle": "Join the growing community of organizations improving their leave process with Congease.",
+        "plans": {
+        "basic": {
+            "title": "Basic",
+            "description": "Start your journey with a 14-day free trial at no cost. Discover how simple leave request management can be.",
+            "price": "$0",
+            "tag": "14-Day Free Trial",
+            "button": "Start this plan",
+            "features": [
+            "Up to 5,000 users",
+            "Unlimited leave requests",
+            "Basic analytics",
+            "User role management"
+            ]
+        },
+        "pro": {
+            "title": "Professional",
+            "badge": "Most Popular",
+            "description": "Unlock the full potential of Congease after your free trial. Enjoy smooth management without limitations.",
+            "price": "$20",
+            "tag": "Monthly Subscription",
+            "button": "Choose this plan",
+            "features": [
+            "Up to 15,000 users",
+            "Advanced analytics",
+            "Custom role management"
+            ]
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Start today with a risk-free trial. Complete leave management for your entire organization.",
+            "price": "$99",
+            "tag": "14-Day Free Trial",
+            "button": "Select this plan",
+            "features": [
+            "Unlimited users",
+            "Full role management",
+            "Priority support"
+            ]
+        }
+        }
+    },
+    "cta": {
+        "title": "Optimize leave management with Congease",
+        "description": "Simplify leave submission and processing with our intuitive application. Enjoy a smooth user experience where every employee can easily manage their requests while HR managers can approve leave with one click. Ready to revolutionize how you manage leave in your company?",
+        "button": "Start your free trial today"
+    },
+    "footer": {
+        "brand": "Congease",
+        "links": {
+            "home": "Home",
+            "how_it_works": "How It Works",
+            "features": "Features",
+            "faq": "FAQ",
+            "contact": "Contact Us"
+        },
+        "copyright": "© 2025 Congease. All Rights Reserved"
+    },
+    "login": {
+        "title": "Login",
+        "email": "Email",
+        "password": "Password",
+        "remember": "Remember me",
+        "forgot_password": "Forgot password?",
+        "submit": "Login",
+        "no_account": "Don't have an account?",
+        "signup": "Sign up",
+        "copyright": "Copyright ©2025 CongeEase",
+        "home_page": "Home Page"
+    },
+    "settings": {
+        "title": "Settings",
+        "subtitle": "Manage your account settings and configure email preferences.",
+        "nav": {
+            "profile": "Profile",
+            "account": "Account",
+            "appearence": "Appearence",
+            "notifications": "Notifications",
+            "display": "Display"
+        }
+    },
+    "appearance": {
+        "title": "Appearance",
+        "subtitle": "Customize the appearance of the app. Automatically switch between themes.",
+        "language": "Language",
+        "language_description": "Set the language for the dashboard.",
+        "theme": "Theme",
+        "theme_description": "Select the theme for the dashboard.",
+        "theme_light": "Light",
+        "theme_dark": "Dark",
+        "update_preferences": "Update preferences"
+    },
+    "profile": {
+        "description": "This is how others will see you on the site.",
+        "username": {
+        "label": "Username",
+        "placeholder": "Enter your username",
+        "description": "This is your public display name. It can be your real name or a pseudonym. You can only change it once every 30 days."
+        },
+        "updateButton": "Update profile"
+    },
+    "accountSettings": {
+        "title": "Account Settings",
+        "description": "Update your password and language preferences",
+        "passwordSection": "Password",
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm Password",
+        "showPassword": "Show",
+        "hidePassword": "Hide",
+        "passwordPlaceholder": "••••••••",
+        "passwordMismatch": "New passwords don't match",
+        "updateSuccess": "Password updated successfully",
+        "updateError": "Failed to update password",
+        "updateButton": "Update Settings",
+        "updatingButton": "Updating..."
+    },
+    "notificationSettings": {
+        "title": "Notifications",
+        "description": "Configure how you receive notifications",
+        "notifyMeAbout": "Notify me about...",
+        "options": {
+            "all": "All new messages",
+            "mentions": "Direct messages and mentions",
+            "none": "No notifications"
+        },
+        "updateButton": "Update notifications"
+    },
+    "displaySettings": {
+        "title": "Display",
+        "description": "Toggle elements to control what's shown in the app",
+        "sidebarLabel": "Sidebar",
+        "sidebarDescription": "Select which items to display in the sidebar",
+        "options": {
+            "Profile": "Profile",
+            "Notifications": "Notifications", 
+            "Calendar": "Calendar"
+        },
+        "updateButton": "Update display settings"
+    },
+    "stats": {
+        "totalEmployees": "Total Employees",
+        "pendingRequests": "Pending Requests",
+        "approvedRequests": "Approved Requests",
+        "rejectedRequests": "Rejected Requests"
+    },
+    "leaveChart": {
+        "title": "Monthly Distribution",
+        "status": {
+            "pending": "Pending",
+            "approved": "Approved",
+            "rejected": "Rejected"
+        }
+    },
+    "employeeModal": {
+        "title": "Add Employee",
+        "fields": {
+            "lastName": "Last Name",
+            "firstName": "First Name",
+            "email": "Email",
+            "password": "Password",
+            "position": "Position",
+            "leaveBalance": "Leave Balance",
+            "hireDate": "Hire Date",
+            "admin": "Admin"
+        },
+        "adminOptions": {
+            "yes": "Yes",
+            "no": "No"
+        },
+        "buttons": {
+            "cancel": "Cancel",
+            "add": "Add"
+        }
+    },
+    "leaveRequestsTable": {
+        "title": "Pending Approval",
+        "viewAll": "View all requests",
+        "noRequests": "No pending requests",
+        "error": "Error: Data not available",
+        "employee": {
+            "position": "Position"
+        },
+        "leave": {
+            "days": "days",
+            "type": "Leave type"
+        },
+        "actions": {
+            "approve": "Approve",
+            "reject": "Reject"
+        }
+    },
+    "notifications": {
+        "title": "My Notifications",
+        "empty": "No notifications at this time.",
+        "received": "Received on:",
+        "status": {
+            "approved": "approved",
+            "rejected": "rejected"
+        }
+    }
+    
+}

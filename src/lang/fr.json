@@ -1,0 +1,262 @@
+{
+    "navbar": {
+        "logo": "Congease",
+        "how_it_works": "Comment ça marche",
+        "features": "Fonctionnalités",
+        "resources": "Ressources",
+        "pricing": "Nos offres",
+        "faq": "FAQ",
+        "blog": "Blog",
+        "login": "Connexion",
+        "signup": "S'inscrire"
+    },
+    "hero": {
+        "title": "Optimisez la gestion de vos congés efficacement",
+        "subtitle": "Avec Congease, facilitez les demandes de congés sans effort. Notre plateforme permet aux employés de soumettre leurs demandes de congés avec simplicité, tandis que les ressources humaines peuvent examiner et gérer les approbations en toute facilité.",
+        "cta": "Inscrivez-vous maintenant",
+        "image_alt": "Illustration d'employés heureux",
+        "testimonial": {
+            "text": "Congease a transformé notre processus de gestion des congés, le rendant efficace et convivial pour tous les utilisateurs.",
+            "name": "Ahmed AZIZ",
+            "position": "(Directrice RH chez Innovations Corp)",
+            "user_alt": "Utilisateur satisfait"
+        }
+    },
+    "about": {
+        "title": "Révolutionnez la Gestion de Vos Congés",
+        "description": "GestionCongeApp simplifie la gestion des congés, permettant aux employés et aux équipes RH de collaborer facilement.",
+        "features": [
+            "Interface conviviale pour des demandes de congés sans tracas",
+            "Processus d'approbation fluide pour des réponses rapides",
+            "Gestion complète des rôles pour un contrôle d'accès sécurisé",
+            "Protection robuste des données pour sécuriser les informations sensibles des employés"
+        ],
+        "cta": "Démarrez votre Essai Gratuit !",
+        "testimonial": {
+            "quote": "Congease a simplifié notre processus de gestion des congés, le rendant très facile pour les employés et les RH !",
+            "name": "Imane Karem",
+            "position": "(Responsable des Opérations chez Tech Innovations)"
+        }
+    },
+    "features": {
+        "title": "Révolutionnez la gestion des congés avec Congease",
+        "subtitle": "Découvrez une simplicité sans égale dans la gestion des demandes de congés des employés. Avec Congease, donnez à votre personnel le pouvoir de soumettre des demandes en quelques clics, tandis que les RH supervisent facilement les approbations tout en maintenant le contrôle sur les autorisations.",
+        "items": [
+        {
+            "title": "Soumission de demande sans effort",
+            "description": "Permettez à votre équipe de soumettre facilement des demandes de congés grâce à une interface simplifiée, conçue pour la simplicité et l'efficacité."
+        },
+        {
+            "title": "Processus d'approbation transparent",
+            "description": "Les RH peuvent gérer les soumissions avec clarté, garantissant des approbations rapides et maintenant un aperçu bien organisé des demandes en attente."
+        },
+        {
+            "title": "Mesures de sécurité plus robustes",
+            "description": "Bénéficiez de mesures de sécurité robustes qui protègent les données sensibles, vous offrant confiance en un système de gestion des congés conforme et sécurisé."
+        }
+        ]
+    },
+    "pricing": {
+        "title": "Choisissez le plan idéal pour vos besoins en gestion des congés",
+        "subtitle": "Rejoignez la communauté croissante d'organisations qui améliorent leurs processus de congé avec Congease.",
+        "plans": {
+        "basic": {
+            "title": "Basique",
+            "description": "Commencez avec un essai gratuit de 14 jours sans frais. Découvrez la simplicité de la gestion des demandes de congés.",
+            "price": "$0",
+            "tag": "Essai gratuit de 14 jours",
+            "button": "Commencez ce plan",
+            "features": [
+            "Jusqu'à 5 000 utilisateurs",
+            "Demandes de congés illimitées",
+            "Analytique de base",
+            "Gestion des rôles utilisateur"
+            ]
+        },
+        "pro": {
+            "title": "Professionnel",
+            "badge": "Le plus populaire",
+            "description": "Déverrouillez tout le potentiel de Congease après votre essai gratuit. Découvrez une gestion fluide sans limitations.",
+            "price": "$20",
+            "tag": "Abonnement mensuel",
+            "button": "Choisir ce plan",
+            "features": [
+            "Jusqu'à 15 000 utilisateurs",
+            "Analytique avancée",
+            "Gestion personnalisée des rôles"
+            ]
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Commencez dès aujourd'hui avec un essai sans risque. Une gestion complète des congés pour votre organisation.",
+            "price": "$99",
+            "tag": "Essai gratuit de 14 jours",
+            "button": "Sélectionnez ce plan",
+            "features": [
+            "Utilisateurs illimités",
+            "Gestion complète des rôles",
+            "Support prioritaire"
+            ]
+        }
+        }
+    },
+    "cta": {
+        "title": "Optimisez la gestion des congés avec Congease",
+        "description": "Simplifiez la soumission et le traitement des demandes de congés avec notre application intuitive. Profitez d'une expérience utilisateur fluide où chaque employé peut facilement gérer ses demandes pendant que les responsables RH peuvent approuver les congés en un clic. Prêt à révolutionner la manière dont vous gérez les congés au sein de votre entreprise ?",
+        "button": "Démarrez votre essai gratuit dès aujourd'hui"
+    },
+    "footer": {
+        "brand": "Congease",
+        "links": {
+            "home": "Accueil",
+            "how_it_works": "Comment ça marche",
+            "features": "Fonctionnalités",
+            "faq": "FAQ",
+            "contact": "Contactez-nous"
+        },
+        "copyright": "© 2025 Congease. Tous droits réservés"
+    },
+    "login": {
+        "title": "Connexion",
+        "email": "Email",
+        "password": "Mot de passe",
+        "remember": "Se souvenir de moi",
+        "forgot_password": "Mot de passe oublié ?",
+        "submit": "Se connecter",
+        "no_account": "Pas encore inscrit ?",
+        "signup": "S'inscrire",
+        "copyright": "Copyright ©2025 CongeEase",
+        "home_page": "Page d'accueil"
+    },
+    "settings": {
+        "title": "Paramètres",
+        "subtitle": "Gérez les paramètres de votre compte et configurez vos préférences e-mail.",
+        "nav": {
+            "profile": "Profil",
+            "account": "Compte",
+            "appearence": "Apparence",
+            "notifications": "Notifications",
+            "display": "Affichage"
+        }
+    },
+    "appearance": {
+        "title": "Apparence",
+        "subtitle": "Personnalisez l'apparence de l'application. Basculez automatiquement entre les thèmes.",
+        "language": "Langue",
+        "language_description": "Définissez la langue pour le tableau de bord.",
+        "theme": "Thème",
+        "theme_description": "Selectionnez le thème pour le tableau de bord.",
+        "theme_light": "Clair",
+        "theme_dark": "Sombre",
+        "update_preferences": "Mettre à jour les préférences"
+    },
+    "profile": {
+        "description": "C'est ainsi que les autres vous verront sur le site.",
+        "username": {
+            "label": "Nom d'utilisateur",
+            "placeholder": "Entrez votre nom d'utilisateur",
+            "description": "Ceci est votre nom d'affichage public. Il peut s'agir de votre vrai nom ou d'un pseudonyme. Vous ne pouvez le modifier qu'une seule fois tous les 30 jours."
+        },
+        "updateButton": "Mettre à jour le profil"
+    },
+    "accountSettings": {
+        "title": "Paramètres du compte",
+        "description": "Mettez à jour votre mot de passe et vos préférences linguistiques",
+        "passwordSection": "Mot de passe",
+        "currentPassword": "Mot de passe actuel",
+        "newPassword": "Nouveau mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "showPassword": "Afficher",
+        "hidePassword": "Masquer",
+        "passwordPlaceholder": "••••••••",
+        "passwordMismatch": "Les nouveaux mots de passe ne correspondent pas",
+        "updateSuccess": "Mot de passe mis à jour avec succès",
+        "updateError": "Échec de la mise à jour",
+        "updateButton": "Mettre à jour les paramètres",
+        "updatingButton": "Mise à jour en cours..."
+    },
+    "notificationSettings": {
+        "title": "Notifications",
+        "description": "Configurez comment vous recevez les notifications",
+        "notifyMeAbout": "M'avertir à propos de...",
+        "options": {
+            "all": "Tous les nouveaux messages",
+            "mentions": "Messages directs et mentions",
+            "none": "Aucune notification"
+        },
+        "updateButton": "Mettre à jour les notifications"
+    },
+    "displaySettings": {
+        "title": "Affichage",
+        "description": "Activez ou désactivez les éléments pour contrôler leur affichage dans l'application",
+        "sidebarLabel": "Sidebar", 
+        "sidebarDescription": "Sélectionnez les éléments que vous souhaitez afficher dans la sidebar",
+        "options": {
+            "Profile": "Profil",
+            "Notifications": "Notifications",
+            "Calendar": "Calendrier"
+        },
+        "updateButton": "Mettre à jour l'affichage"
+    },
+    "stats": {
+        "totalEmployees": "Total des Employés",
+        "pendingRequests": "Demandes en Attente",
+        "approvedRequests": "Demandes Approuvées",
+        "rejectedRequests": "Demandes Rejetées"
+    },
+    "leaveChart": {
+        "title": "Répartition mensuelle",
+        "status": {
+            "pending": "En attente",
+            "approved": "Approuvées", 
+            "rejected": "Rejetées"
+        }
+    },
+    "employeeModal": {
+        "title": "Ajouter un employé",
+        "fields": {
+            "lastName": "Nom",
+            "firstName": "Prénom",
+            "email": "Email",
+            "password": "Mot de passe",
+            "position": "Poste",
+            "leaveBalance": "Solde de congé",
+            "hireDate": "Date d'embauche",
+            "admin": "Admin"
+        },
+        "adminOptions": {
+            "yes": "Oui",
+            "no": "Non"
+        },
+        "buttons": {
+            "cancel": "Annuler",
+            "add": "Ajouter"
+        }
+    },
+    "leaveRequestsTable": {
+        "title": "Pending Approval",
+        "viewAll": "View all requests",
+        "noRequests": "No pending requests",
+        "error": "Error: Data not available",
+        "employee": {
+            "position": "Position"
+        },
+        "leave": {
+            "days": "days",
+            "type": "Leave type"
+        },
+        "actions": {
+            "approve": "Approve",
+            "reject": "Reject"
+        }
+    },
+    "notifications": {
+    "title": "Mes Notifications",
+    "empty": "Aucune notification pour le moment.",
+    "received": "Reçu le :",
+    "status": {
+        "approved": "acceptée",
+        "rejected": "rejetée"
+    }
+    }
+}

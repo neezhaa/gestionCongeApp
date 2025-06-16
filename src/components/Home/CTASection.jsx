@@ -1,25 +1,40 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function CTASection() {
-    return (
-      <section id='CTASection' className="my-12 bg-[#e9f3fa] py-6" >
-          <div className="container mx-auto flex flex-col sm:flex-row">
-              <div className="mb-6 flex w-full flex-col items-center md:mb-0 md:w-[55%] md:flex-row">
-                  <img src="https://cdni.iconscout.com/illustration/premium/thumb/man-have-no-annual-leave-to-rest-from-hard-work-12513375-10207361.png" alt="CTA" className="h-auto w-full"/>
-              </div>
-              <div className="flex w-full flex-col justify-center p-8 md:w-[45%] md:pr-14">
-                  <h3 className="mb-2 text-center text-2xl font-bold sm:text-left sm:text-5xl">Optimisez la gestion des congés avecCongease</h3>
-                  <p className="mb-12 text-center text-base text-[#6c757d] sm:text-left sm:text-lg">
-                        Simplifiez la soumission et le traitement des demandes de congés avec notre application intuitive.
-                        Profitez d&apos;une expérience utilisateur fluide où chaque employé peut facilement gérer ses demandes pendant que les responsables RH peuvent approuver les congés en un clic. 
-                        Prêt à révolutionner la manière dont vous gérez les congés au sein de votre entreprise ?</p>
-                  <div className="mb-12 flex items-center justify-center md:items-start md:justify-start">
-                      <Link to="/signup" className="items-center rounded bg-[#0f4c81] px-[12px] py-[8px] text-lg font-semibold text-white hover:bg-[#093558]">Démarrez votre essai gratuit dès aujourd&apos;hui</Link>
-                  </div>
-              </div>
+  const { t } = useTranslation();
+
+  return (
+    <section id="cta" className="mb-12 bg-[#e9f3fa] py-12">
+      <div className="container mx-auto flex flex-col items-center lg:flex-row">
+        <div className="mb-8 w-full lg:mb-0 lg:w-1/2">
+          <img
+            src="https://cdni.iconscout.com/illustration/premium/thumb/man-have-no-annual-leave-to-rest-from-hard-work-12513375-10207361.png"
+            alt={t("cta.title")}
+            className="mx-auto h-auto max-w-md object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex w-full flex-col justify-center p-4 lg:w-1/2 lg:px-8">
+          <h2 className="mb-6 text-center text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-left">
+            {t("cta.title")}
+          </h2>
+          <p className="mb-8 text-center text-lg text-gray-600 lg:text-left">
+            {t("cta.description")}
+          </p>
+          <div className="flex justify-center lg:justify-start">
+            <Link
+              to="/signup"
+              className="rounded-lg bg-[#0f4c81] px-6 py-3 text-lg font-semibold text-white transition-colors duration-300 hover:bg-[#093558] focus:outline-none focus:ring-2 focus:ring-[#0f4c81] focus:ring-offset-2"
+              aria-label={t("cta.button")}
+            >
+              {t("cta.button")}
+            </Link>
           </div>
-      </section>
-    )
-  }
-  
-  export default CTASection
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default CTASection;

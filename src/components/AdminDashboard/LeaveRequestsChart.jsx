@@ -1,13 +1,15 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { parseISO, startOfYear, eachMonthOfInterval, format as dfnsFormat } from 'date-fns';
 import { useLeaveContext } from '../../context/LeaveContext';
+import { useTranslation } from 'react-i18next';
 
-const processLeaveData = () => {
+const useProcessLeaveData = () => {
+  const { t } = useTranslation();
   const { leaveRequests } = useLeaveContext();
 
-  // Vérifiez que leaveRequests est un tableau
+  // Check if leaveRequests is an array
   if (!Array.isArray(leaveRequests)) {
-    console.error('leaveRequests doit être un tableau', leaveRequests);
+    console.error("Leave requests must be an array", leaveRequests);
     return [];
   }
 
@@ -19,9 +21,9 @@ const processLeaveData = () => {
 
   const monthlyData = months.map(month => ({
     name: dfnsFormat(month, 'MMM'),
-    Pending: 0,
-    Approved: 0,
-    Rejected: 0,
+    [t('leaveChart.status.pending')]: 0,
+    [t('leaveChart.status.approved')]: 0,
+    [t('leaveChart.status.rejected')]: 0,
     Total: 0,
     monthNumber: month.getMonth()
   }));
@@ -34,13 +36,13 @@ const processLeaveData = () => {
     if (monthData) {
       switch (request.statut) {
         case 'en attente':
-          monthData.Pending++;
+          monthData[t('leaveChart.status.pending')]++;
           break;
         case 'accepté':
-          monthData.Approved++;
+          monthData[t('leaveChart.status.approved')]++;
           break;
         case 'refusé':
-          monthData.Rejected++;
+          monthData[t('leaveChart.status.rejected')]++;
           break;
       }
       monthData.Total++;
@@ -51,12 +53,15 @@ const processLeaveData = () => {
 };
 
 const LeaveRequestsChart = () => {
-  const chartData = processLeaveData();
+  const { t } = useTranslation();
+  const chartData = useProcessLeaveData();
 
   return (
     <div className="">
       <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-        <h2 className="text-xl font-bold mb-4 text-gray-700">📊 Répartition mensuelle</h2>
+        <h2 className="text-xl font-bold mb-4 text-gray-700">
+          📊 {t('leaveChart.title')}
+        </h2>
         <div className="h-[224px]">
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={chartData}>
@@ -65,9 +70,21 @@ const LeaveRequestsChart = () => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="Pending" name="En attente" fill="#f59e0b" />
-              <Bar dataKey="Approved" name="Approuvées" fill="#10b981" />
-              <Bar dataKey="Rejected" name="Rejetées" fill="#ef4444" />
+              <Bar 
+                dataKey={t('leaveChart.status.pending')} 
+                name={t('leaveChart.status.pending')} 
+                fill="#f59e0b" 
+              />
+              <Bar 
+                dataKey={t('leaveChart.status.approved')} 
+                name={t('leaveChart.status.approved')} 
+                fill="#10b981" 
+              />
+              <Bar 
+                dataKey={t('leaveChart.status.rejected')} 
+                name={t('leaveChart.status.rejected')} 
+                fill="#ef4444" 
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>

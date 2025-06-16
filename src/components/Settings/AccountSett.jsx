@@ -2,8 +2,10 @@ import { useState } from "react";
 import { toast } from "sonner";
 import api from "@/services/api";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function AccountSettings() {
+  const { t } = useTranslation();
   const [passwords, setPasswords] = useState({
     current: "",
     new: "",
@@ -25,25 +27,22 @@ function AccountSettings() {
     setPasswords({ ...passwords, [name]: value });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     setError("");
 
     try {
-      // Validate passwords
       if (passwords.new !== passwords.confirm) {
-        throw new Error("Les nouveaux mots de passe ne correspondent pas");
+        throw new Error(t('accountSettings.passwordMismatch'));
       }
 
-      // Send update request
       await api.put(
         "/update-password",
         {
-            current_password: passwords.current,
-            new_password: passwords.new,
-            new_password_confirmation: passwords.confirm,
+          current_password: passwords.current,
+          new_password: passwords.new,
+          new_password_confirmation: passwords.confirm,
         },
         {
           headers: {
@@ -52,14 +51,13 @@ function AccountSettings() {
         }
       );
 
-      toast.success("Mot de passe mis à jour avec succès");
+      toast.success(t('accountSettings.updateSuccess'));
       setPasswords({ current: "", new: "", confirm: "" });
-
-      navigate('/dashboard')
+      navigate('/dashboard');
 
     } catch (error) {
       setError(error.response?.data?.message || error.message);
-      toast.error("Échec de la mise à jour");
+      toast.error(t('accountSettings.updateError'));
     } finally {
       setSubmitting(false);
     }
@@ -68,22 +66,23 @@ function AccountSettings() {
   return (
     <div className="flex-1 pl-6">
       <div>
-        <h2 className="text-lg font-medium">Paramètres du compte</h2>
+        <h2 className="text-lg font-medium">{t('accountSettings.title')}</h2>
         <p className="text-sm text-muted-foreground">
-          Mettez à jour votre mot de passe et vos préférences linguistiques
+          {t('accountSettings.description')}
         </p>
       </div>
 
       <div className="bg-border h-[1px] w-full shrink-0 my-6" />
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Password Update Section */}
         <div className="space-y-4">
-          <h3 className="font-medium">Mot de passe</h3>
+          <h3 className="font-medium">{t('accountSettings.passwordSection')}</h3>
 
           {/* Current Password */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Mot de passe actuel</label>
+            <label className="text-sm font-medium">
+              {t('accountSettings.currentPassword')}
+            </label>
             <div className="relative">
               <input
                 type={showPassword.current ? "text" : "password"}
@@ -91,7 +90,7 @@ function AccountSettings() {
                 value={passwords.current}
                 onChange={handlePasswordChange}
                 className="input-field"
-                placeholder="••••••••"
+                placeholder={t('accountSettings.passwordPlaceholder')}
                 required
               />
               <button
@@ -101,14 +100,16 @@ function AccountSettings() {
                 }
                 className="absolute right-3 top-2 text-sm text-muted-foreground"
               >
-                {showPassword.current ? "Masquer" : "Afficher"}
+                {showPassword.current ? t('accountSettings.hidePassword') : t('accountSettings.showPassword')}
               </button>
             </div>
           </div>
 
           {/* New Password */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Nouveau mot de passe</label>
+            <label className="text-sm font-medium">
+              {t('accountSettings.newPassword')}
+            </label>
             <div className="relative">
               <input
                 type={showPassword.new ? "text" : "password"}
@@ -116,7 +117,7 @@ function AccountSettings() {
                 value={passwords.new}
                 onChange={handlePasswordChange}
                 className="input-field"
-                placeholder="••••••••"
+                placeholder={t('accountSettings.passwordPlaceholder')}
                 required
               />
               <button
@@ -126,14 +127,16 @@ function AccountSettings() {
                 }
                 className="absolute right-3 top-2 text-sm text-muted-foreground"
               >
-                {showPassword.new ? "Masquer" : "Afficher"}
+                {showPassword.new ? t('accountSettings.hidePassword') : t('accountSettings.showPassword')}
               </button>
             </div>
           </div>
 
           {/* Confirm Password */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Confirmer le mot de passe</label>
+            <label className="text-sm font-medium">
+              {t('accountSettings.confirmPassword')}
+            </label>
             <div className="relative">
               <input
                 type={showPassword.confirm ? "text" : "password"}
@@ -141,7 +144,7 @@ function AccountSettings() {
                 value={passwords.confirm}
                 onChange={handlePasswordChange}
                 className="input-field"
-                placeholder="••••••••"
+                placeholder={t('accountSettings.passwordPlaceholder')}
                 required
               />
               <button
@@ -151,22 +154,20 @@ function AccountSettings() {
                 }
                 className="absolute right-3 top-2 text-sm text-muted-foreground"
               >
-                {showPassword.confirm ? "Masquer" : "Afficher"}
+                {showPassword.confirm ? t('accountSettings.hidePassword') : t('accountSettings.showPassword')}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Error Message */}
         {error && <p className="font-bold text-sm text-destructive">{error}</p>}
 
-        {/* Submit Button */}
         <button
           type="submit"
           className="submit-button"
           disabled={submitting}
         >
-          {submitting ? "Mise à jour en cours..." : "Mettre à jour les paramètres"}
+          {submitting ? t('accountSettings.updatingButton') : t('accountSettings.updateButton')}
         </button>
       </form>
     </div>
