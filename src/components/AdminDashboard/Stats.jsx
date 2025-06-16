@@ -2,7 +2,7 @@ import { ClockIcon, CheckCircleIcon, UserGroupIcon, XCircleIcon } from '@heroico
 import { useLeaveContext } from '../../context/LeaveContext';
 
 function Stats() {
-    const { employees, leaveRequests } = useLeaveContext();
+    const { employees, leaveRequests, notifications } = useLeaveContext();
 
     return (
         <div className="flex-1 overflow-x-hidden overflow-y-auto">
@@ -27,14 +27,14 @@ function Stats() {
                             <CheckCircleIcon className="w-6 h-6 text-gray-700" />
                         </div>
                         <h2 className="text-xl font-bold mb-4">Demandes Approuvées</h2>
-                        <p className="text-3xl font-bold mt-2">{leaveRequests.filter(req => req.statut === 'accepté').length}</p>
+                        <p className="text-3xl font-bold mt-2">{notifications.filter(req => req.message === 'Demande acceptée').length}</p>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-lg">
                         <div className='bg-red-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
                             <XCircleIcon className="w-6 h-6 text-gray-700" />
                         </div>
                         <h2 className="text-xl font-bold mb-4">Demandes Rejetées</h2>
-                        <p className="text-3xl font-bold mt-2">{leaveRequests.filter(req => req.statut === 'refusé').length}</p>
+                        <p className="text-3xl font-bold mt-2">{notifications.filter(req => req.message === 'Demande rejetée').length}</p>
                     </div>
                 </div>
             </div>
