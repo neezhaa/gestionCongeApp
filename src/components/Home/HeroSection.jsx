@@ -9,7 +9,7 @@ function HeroSection() {
       <div className="container mx-auto mb-24 px-6">
         <div className="flex flex-col-reverse items-center lg:flex-row">
           {/* Text Content */}
-          <div className="mt-6 w-full lg:mt-16 lg:w-[45%] lg:pr-14">
+          <div className="mt-6 w-full lg:mt-16 lg:w-[60%] lg:pr-1">
             <h1 className="mb-4 text-center text-4xl font-bold lg:text-left lg:text-5xl xl:text-6xl">
               {t('hero.title')}
             </h1>
@@ -18,7 +18,7 @@ function HeroSection() {
             </p>
             <div className="mb-12 flex items-center justify-center lg:items-start lg:justify-start">
               <Link 
-                to="/signup" 
+                to="/contact" 
                 className="items-center rounded bg-[#0f4c81] px-[12px] py-[8px] text-lg font-semibold text-white hover:bg-[#093558] transition-colors"
               >
                 {t('hero.cta')}

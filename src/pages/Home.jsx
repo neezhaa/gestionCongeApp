@@ -9,6 +9,7 @@ import FeaturesSection from "../components/Home/FeaturesSection";
 import PricingSection from "../components/Home/PricingSection";
 // import BlogSection from "../components/Home/BlogSection";
 import CTASection from "../components/Home/CTASection";
+import ContactUs from "../components/Home/ContactUs";
 
 function Home() {
     const [showButton, setShowButton] = useState(false);
@@ -35,6 +36,7 @@ function Home() {
             <FeaturesSection/>
             <PricingSection/>
             <CTASection/>
+            <ContactUs/>
             <Footer/>
             {showButton && (
                     <button

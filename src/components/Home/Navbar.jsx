@@ -85,14 +85,14 @@ function Navbar() {
                 <div className="h-6 w-px bg-gray-200"></div>
 
                 <div className="flex items-center space-x-4">
-                    <Link to="/login" className="text-gray-800 hover:text-blue-600 font-medium transition-colors">
-                    {t('navbar.login')}
+                    <Link to="#contact" className="text-gray-800 hover:text-blue-600 font-medium transition-colors">
+                    {t('navbar.contact')}
                     </Link>
                     <Link 
-                    to="/signup" 
+                    to="/login" 
                     className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-5 py-2 rounded-lg font-medium transition-all shadow-sm hover:shadow-md"
                     >
-                    {t('navbar.signup')}
+                    {t('navbar.login')}
                     </Link>
                 </div>
                 </div>
@@ -166,7 +166,6 @@ function Navbar() {
             {/* Language Switcher Mobile */}
             <div className="px-4 py-3 border-t border-gray-100">
                 <div className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-2 px-3">
-                {t('navbar.language')}
                 </div>
                 <div className="grid grid-cols-3 gap-2">
                 <button 
@@ -193,16 +192,16 @@ function Navbar() {
             {/* Auth Buttons Mobile */}
             <div className="px-4 py-4 border-t border-gray-100 space-y-3">
                 <Link 
-                to="/login" 
+                to="/contact" 
                 className="block w-full text-center px-4 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium"
                 >
-                {t('navbar.login')}
+                {t('navbar.contact')}
                 </Link>
                 <Link 
-                to="/signup" 
+                to="/login" 
                 className="block w-full text-center bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-4 py-3 rounded-lg font-medium transition-all"
                 >
-                {t('navbar.signup')}
+                {t('navbar.login')}
                 </Link>
             </div>
             </div>
