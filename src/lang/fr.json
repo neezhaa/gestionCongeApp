@@ -127,6 +127,75 @@
         "signup": "S'inscrire",
         "copyright": "Copyright ©2025 CongeEase",
         "home_page": "Page d'accueil"
-        
+    },
+    "settings": {
+        "title": "Paramètres",
+        "subtitle": "Gérez les paramètres de votre compte et configurez vos préférences e-mail.",
+        "nav": {
+            "profile": "Profil",
+            "account": "Compte",
+            "appearence": "Apparence",
+            "notifications": "Notifications",
+            "display": "Affichage"
+        }
+    },
+    "appearance": {
+        "title": "Apparence",
+        "subtitle": "Personnalisez l'apparence de l'application. Basculez automatiquement entre les thèmes.",
+        "language": "Langue",
+        "language_description": "Définissez la langue pour le tableau de bord.",
+        "theme": "Thème",
+        "theme_description": "Selectionnez le thème pour le tableau de bord.",
+        "theme_light": "Clair",
+        "theme_dark": "Sombre",
+        "update_preferences": "Mettre à jour les préférences"
+    },
+    "profile": {
+        "description": "C'est ainsi que les autres vous verront sur le site.",
+        "username": {
+            "label": "Nom d'utilisateur",
+            "placeholder": "Entrez votre nom d'utilisateur",
+            "description": "Ceci est votre nom d'affichage public. Il peut s'agir de votre vrai nom ou d'un pseudonyme. Vous ne pouvez le modifier qu'une seule fois tous les 30 jours."
+        },
+        "updateButton": "Mettre à jour le profil"
+    },
+    "accountSettings": {
+        "title": "Paramètres du compte",
+        "description": "Mettez à jour votre mot de passe et vos préférences linguistiques",
+        "passwordSection": "Mot de passe",
+        "currentPassword": "Mot de passe actuel",
+        "newPassword": "Nouveau mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "showPassword": "Afficher",
+        "hidePassword": "Masquer",
+        "passwordPlaceholder": "••••••••",
+        "passwordMismatch": "Les nouveaux mots de passe ne correspondent pas",
+        "updateSuccess": "Mot de passe mis à jour avec succès",
+        "updateError": "Échec de la mise à jour",
+        "updateButton": "Mettre à jour les paramètres",
+        "updatingButton": "Mise à jour en cours..."
+    },
+    "notificationSettings": {
+        "title": "Notifications",
+        "description": "Configurez comment vous recevez les notifications",
+        "notifyMeAbout": "M'avertir à propos de...",
+        "options": {
+            "all": "Tous les nouveaux messages",
+            "mentions": "Messages directs et mentions",
+            "none": "Aucune notification"
+        },
+        "updateButton": "Mettre à jour les notifications"
+    },
+    "displaySettings": {
+        "title": "Affichage",
+        "description": "Activez ou désactivez les éléments pour contrôler leur affichage dans l'application",
+        "sidebarLabel": "Sidebar", 
+        "sidebarDescription": "Sélectionnez les éléments que vous souhaitez afficher dans la sidebar",
+        "options": {
+            "Profile": "Profil",
+            "Notifications": "Notifications",
+            "Calendar": "Calendrier"
+        },
+        "updateButton": "Mettre à jour l'affichage"
     }
 }

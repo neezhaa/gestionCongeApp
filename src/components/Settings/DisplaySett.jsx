@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
-const options = ["Profile", "Notifications", "Calendrier"];
-
-function DisplaySett() {
+function DisplaySettings() {
+  const { t } = useTranslation();
+  
   const [checkedItems, setCheckedItems] = useState({
-    Users: false,
+    Profile: false,
     Notifications: false,
     Calendar: false,
   });
@@ -17,20 +18,26 @@ function DisplaySett() {
     }));
   };
 
+  const options = Object.keys(t('displaySettings.options', { returnObjects: true }));
+
   return (
     <div className="flex-1 pl-6">
       <div>
-        <h2 className="text-lg font-medium">Affichage</h2>
+        <h2 className="text-lg font-medium">{t('displaySettings.title')}</h2>
         <p className="text-sm text-muted-foreground">
-          Activez ou désactivez les éléments pour contrôler leur affichage dans l&apos;application.
+          {t('displaySettings.description')}
         </p>
       </div>
+      
       <div className="bg-border h-[1px] w-full shrink-0 my-6"></div>
+      
       <form className="space-y-8">
         <div className="space-y-2">
-          <label className="text-base font-medium">Sidebar</label>
+          <label className="text-base font-medium">
+            {t('displaySettings.sidebarLabel')}
+          </label>
           <p className="text-[0.8rem] text-muted-foreground">
-            Sélectionnez les éléments que vous souhaitez afficher dans sidebar.
+            {t('displaySettings.sidebarDescription')}
           </p>
 
           {options.map((option) => (
@@ -65,15 +72,17 @@ function DisplaySett() {
                   )}
                 </div>
               </label>
-              <span className="select-none">{option}</span>
+              <span className="select-none">
+                {t(`displaySettings.options.${option}`)}
+              </span>
             </div>
           ))}
         </div>
 
-        <Button>Mettre à jour l'affichage</Button>
+        <Button>{t('displaySettings.updateButton')}</Button>
       </form>
     </div>
   );
 }
 
-export default DisplaySett;
+export default DisplaySettings;

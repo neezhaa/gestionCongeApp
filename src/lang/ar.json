@@ -128,5 +128,76 @@
         "signup": "إنشاء حساب",
         "copyright": "حقوق النشر ©2025 CongeEase",
         "home_page": "الصفحة الرئيسية"
+    },
+    "settings": {
+        "title": "الإعدادات",
+        "subtitle": "قم بإدارة إعدادات حسابك وضبط تفضيلات البريد الإلكتروني.",
+        "nav": {
+            "profile": "الملف الشخصي",
+            "account": "الحساب",
+            "appearence": "المظهر",
+            "notifications": "الإشعارات",
+            "display": "العرض"
+        }
+    },
+    "appearance": {
+        "title": "المظهر",
+        "subtitle": "قم بتخصيص مظهر التطبيق. التبديل التلقائي بين السمات.",
+        "language": "اللغة",
+        "language_description": "تعيين اللغة للوحة القيادة.",
+        "theme": "السمة",
+        "theme_description": "حدد السمة للوحة القيادة.",
+        "theme_light": "فاتح",
+        "theme_dark": "داكن",
+        "update_preferences": "تحديث التفضيلات"
+    },
+    "profile": {
+        "description": "هذه هي الطريقة التي سيراك بها الآخرون على الموقع.",
+        "username": {
+        "label": "اسم المستخدم",
+        "placeholder": "أدخل اسم المستخدم الخاص بك",
+        "description": "هذا هو اسم العرض العام الخاص بك. يمكن أن يكون اسمك الحقيقي أو اسم مستعار. يمكنك تغييره مرة واحدة فقط كل 30 يومًا."
+        },
+        "updateButton": "تحديث الملف الشخصي"
+    },
+    "accountSettings": {
+        "title": "إعدادات الحساب",
+        "description": "قم بتحديث كلمة المرور وتفضيلات اللغة",
+        "passwordSection": "كلمة المرور",
+        "currentPassword": "كلمة المرور الحالية",
+        "newPassword": "كلمة المرور الجديدة",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "showPassword": "إظهار",
+        "hidePassword": "إخفاء",
+        "passwordPlaceholder": "••••••••",
+        "passwordMismatch": "كلمات المرور الجديدة غير متطابقة",
+        "updateSuccess": "تم تحديث كلمة المرور بنجاح",
+        "updateError": "فشل التحديث",
+        "updateButton": "تحديث الإعدادات",
+        "updatingButton": "جاري التحديث..."
+    },
+    "notificationSettings": {
+        "title": "الإشعارات",
+        "description": "تهيئة طريقة استلام الإشعارات",
+        "notifyMeAbout": "أريد إشعارات عن...",
+        "options": {
+            "all": "جميع الرسائل الجديدة",
+            "mentions": "الرسائل المباشرة والتنبيهات",
+            "none": "لا توجد إشعارات"
+        },
+        "updateButton": "تحديث الإشعارات"
+    },
+    "displaySettings": {
+        "title": "العرض",
+        "description": "قم بتشغيل أو إيقاف العناصر للتحكم في ما يتم عرضه في التطبيق",
+        "sidebarLabel": "الشريط الجانبي",
+        "sidebarDescription": "حدد العناصر التي تريد عرضها في الشريط الجانبي",
+        "options": {
+            "Profile": "الملف الشخصي",
+            "Notifications": "الإشعارات",
+            "Calendar": "التقويم"
+        },
+        "updateButton": "تحديث إعدادات العرض"
     }
+
 }

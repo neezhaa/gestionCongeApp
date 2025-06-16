@@ -127,5 +127,75 @@
         "signup": "Sign up",
         "copyright": "Copyright ©2025 CongeEase",
         "home_page": "Home Page"
+    },
+    "settings": {
+        "title": "Settings",
+        "subtitle": "Manage your account settings and configure email preferences.",
+        "nav": {
+            "profile": "Profile",
+            "account": "Account",
+            "appearence": "Appearence",
+            "notifications": "Notifications",
+            "display": "Display"
+        }
+    },
+    "appearance": {
+        "title": "Appearance",
+        "subtitle": "Customize the appearance of the app. Automatically switch between themes.",
+        "language": "Language",
+        "language_description": "Set the language for the dashboard.",
+        "theme": "Theme",
+        "theme_description": "Select the theme for the dashboard.",
+        "theme_light": "Light",
+        "theme_dark": "Dark",
+        "update_preferences": "Update preferences"
+    },
+    "profile": {
+        "description": "This is how others will see you on the site.",
+        "username": {
+        "label": "Username",
+        "placeholder": "Enter your username",
+        "description": "This is your public display name. It can be your real name or a pseudonym. You can only change it once every 30 days."
+        },
+        "updateButton": "Update profile"
+    },
+    "accountSettings": {
+        "title": "Account Settings",
+        "description": "Update your password and language preferences",
+        "passwordSection": "Password",
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm Password",
+        "showPassword": "Show",
+        "hidePassword": "Hide",
+        "passwordPlaceholder": "••••••••",
+        "passwordMismatch": "New passwords don't match",
+        "updateSuccess": "Password updated successfully",
+        "updateError": "Failed to update password",
+        "updateButton": "Update Settings",
+        "updatingButton": "Updating..."
+    },
+    "notificationSettings": {
+        "title": "Notifications",
+        "description": "Configure how you receive notifications",
+        "notifyMeAbout": "Notify me about...",
+        "options": {
+            "all": "All new messages",
+            "mentions": "Direct messages and mentions",
+            "none": "No notifications"
+        },
+        "updateButton": "Update notifications"
+    },
+    "displaySettings": {
+        "title": "Display",
+        "description": "Toggle elements to control what's shown in the app",
+        "sidebarLabel": "Sidebar",
+        "sidebarDescription": "Select which items to display in the sidebar",
+        "options": {
+            "Profile": "Profile",
+            "Notifications": "Notifications", 
+            "Calendar": "Calendar"
+        },
+        "updateButton": "Update display settings"
     }
 }
