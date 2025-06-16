@@ -8,13 +8,12 @@
         "faq": "FAQ",
         "blog": "Blog",
         "login": "Login",
-        "signup": "Sign Up"
+        "contact": "Contact us"
     },
     "hero": {
         "title": "Optimize your leave management efficiently",
         "subtitle": "With Congease, simplify leave requests effortlessly. Our platform enables employees to submit leave requests with ease, while HR can review and manage approvals with complete simplicity.",
-        "cta": "Sign up now",
-        "image_alt": "Happy employees illustration",
+        "cta": "Contact us now",
         "testimonial": {
             "text": "Congease transformed our leave management process, making it efficient and user-friendly for all users.",
             "name": "Ahmed AZIZ",
@@ -30,13 +29,7 @@
             "Smooth approval process for quick responses",
             "Comprehensive role management for secure access control",
             "Robust data protection to secure sensitive employee information"
-        ],
-        "cta": "Start Your Free Trial!",
-        "testimonial": {
-            "quote": "Congease has simplified our leave management process, making it very easy for employees and HR!",
-            "name": "Imane Karem",
-            "position": "(Operations Manager at Tech Innovations)"
-        }
+        ]
     },
     "features": {
         "title": "Revolutionize leave management with Congease",
@@ -93,12 +86,21 @@
             "tag": "14-Day Free Trial",
             "button": "Select this plan",
             "features": [
-            "Unlimited users",
-            "Full role management",
-            "Priority support"
-            ]
+                "Unlimited users",
+                "Full role management",
+                "Priority support"
+                ]
+            }
         }
-        }
+    },
+    "contact": {
+        "title": "Contact Us",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "submit": "Submit",
+        "helpTitle": "How can we help you?",
+        "helpText": "Our team is ready to answer your questions and provide support."
     },
     "cta": {
         "title": "Optimize leave management with Congease",

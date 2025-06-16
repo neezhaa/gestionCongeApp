@@ -8,13 +8,12 @@
         "faq": "FAQ",
         "blog": "Blog",
         "login": "Connexion",
-        "signup": "S'inscrire"
+        "contact": "Contactez-nous"
     },
     "hero": {
         "title": "Optimisez la gestion de vos congés efficacement",
         "subtitle": "Avec Congease, facilitez les demandes de congés sans effort. Notre plateforme permet aux employés de soumettre leurs demandes de congés avec simplicité, tandis que les ressources humaines peuvent examiner et gérer les approbations en toute facilité.",
-        "cta": "Inscrivez-vous maintenant",
-        "image_alt": "Illustration d'employés heureux",
+        "cta": "Contactez-nous maintenant",
         "testimonial": {
             "text": "Congease a transformé notre processus de gestion des congés, le rendant efficace et convivial pour tous les utilisateurs.",
             "name": "Ahmed AZIZ",
@@ -30,13 +29,7 @@
             "Processus d'approbation fluide pour des réponses rapides",
             "Gestion complète des rôles pour un contrôle d'accès sécurisé",
             "Protection robuste des données pour sécuriser les informations sensibles des employés"
-        ],
-        "cta": "Démarrez votre Essai Gratuit !",
-        "testimonial": {
-            "quote": "Congease a simplifié notre processus de gestion des congés, le rendant très facile pour les employés et les RH !",
-            "name": "Imane Karem",
-            "position": "(Responsable des Opérations chez Tech Innovations)"
-        }
+        ]
     },
     "features": {
         "title": "Révolutionnez la gestion des congés avec Congease",
@@ -99,6 +92,15 @@
             ]
         }
         }
+    },
+    "contact": {
+        "title": "Contactez-Nous",
+        "name": "Nom",
+        "email": "Email",
+        "message": "Message",
+        "submit": "Soumettre",
+        "helpTitle": "Comment pouvons-nous vous aider?",
+        "helpText": "Notre équipe est prête à répondre à vos questions et à vous apporter son soutien."
     },
     "cta": {
         "title": "Optimisez la gestion des congés avec Congease",
@@ -251,12 +253,12 @@
         }
     },
     "notifications": {
-    "title": "Mes Notifications",
-    "empty": "Aucune notification pour le moment.",
-    "received": "Reçu le :",
-    "status": {
-        "approved": "acceptée",
-        "rejected": "rejetée"
-    }
+        "title": "Mes Notifications",
+        "empty": "Aucune notification pour le moment.",
+        "received": "Reçu le :",
+        "status": {
+            "approved": "acceptée",
+            "rejected": "rejetée"
+        }
     }
 }
